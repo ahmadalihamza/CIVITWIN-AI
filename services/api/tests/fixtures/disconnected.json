@@ -1,0 +1,101 @@
+{
+  "assumptions": [
+    "The second community cannot reach the only existing service site."
+  ],
+  "communities": [
+    {
+      "demand_visits_per_week": 60,
+      "id": "C01",
+      "label": "Community 01",
+      "node_id": "D01",
+      "population": null,
+      "zone_class": "Valley"
+    },
+    {
+      "demand_visits_per_week": 40,
+      "id": "C02",
+      "label": "Community 02",
+      "node_id": "D02",
+      "population": null,
+      "zone_class": "Ridge"
+    }
+  ],
+  "district_label": "Disconnected synthetic test fixture",
+  "edges": [],
+  "id": "fixture-disconnected-v1",
+  "is_synthetic": true,
+  "license": "CC0-1.0",
+  "model_scope": "Scheduled non-emergency outpatient access over one modeled week.",
+  "nodes": [
+    {
+      "display_x": 0,
+      "display_y": 10,
+      "id": "D01",
+      "label": "Node 1"
+    },
+    {
+      "display_x": 100,
+      "display_y": 10,
+      "id": "D02",
+      "label": "Node 2"
+    }
+  ],
+  "provenance": [
+    {
+      "caveat": "Fictional aggregate visits per modeled week.",
+      "entity": "sites",
+      "field": "capacity_per_week",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Fictional requested visits, not people.",
+      "entity": "communities",
+      "field": "demand_visits_per_week",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Illustrative graph costs, not observed travel times.",
+      "entity": "edges",
+      "field": "minutes",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Illustrative weekly-equivalent planning costs in PKR.",
+      "entity": "sites",
+      "field": "fixed_cost_pkr",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Schematic positions without geographic coordinates.",
+      "entity": "nodes",
+      "field": "display_x/display_y",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    }
+  ],
+  "schema_version": 1,
+  "sha256": "761c98cb4bf533f1e520c5b9fa5b8a209665c1223fe47e9ee519dd5bfa3c1f28",
+  "sites": [
+    {
+      "capacity_per_week": 100,
+      "eligible": true,
+      "fixed_cost_pkr": 0,
+      "id": "E01",
+      "label": "Existing site 01",
+      "node_id": "D01",
+      "type": "existing"
+    }
+  ],
+  "source_date": "2026-11-13",
+  "source_url": null,
+  "version": "1.0.0"
+}

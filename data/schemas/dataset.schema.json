@@ -1,0 +1,380 @@
+{
+  "$defs": {
+    "Community": {
+      "additionalProperties": false,
+      "properties": {
+        "demand_visits_per_week": {
+          "maximum": 1000000,
+          "minimum": 0,
+          "title": "Demand Visits Per Week",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "node_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "population": {
+          "anyOf": [
+            {
+              "maximum": 100000000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Population"
+        },
+        "zone_class": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Zone Class",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "demand_visits_per_week",
+        "zone_class",
+        "node_id"
+      ],
+      "title": "Community",
+      "type": "object"
+    },
+    "Edge": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "enum": [
+            "forward",
+            "bidirectional"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "from_node": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+          "title": "From Node",
+          "type": "string"
+        },
+        "minutes": {
+          "exclusiveMinimum": 0,
+          "maximum": 1440,
+          "title": "Minutes",
+          "type": "integer"
+        },
+        "to_node": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+          "title": "To Node",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from_node",
+        "to_node",
+        "minutes",
+        "direction"
+      ],
+      "title": "Edge",
+      "type": "object"
+    },
+    "Node": {
+      "additionalProperties": false,
+      "properties": {
+        "display_x": {
+          "maximum": 10000,
+          "minimum": 0,
+          "title": "Display X",
+          "type": "integer"
+        },
+        "display_y": {
+          "maximum": 10000,
+          "minimum": 0,
+          "title": "Display Y",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "display_x",
+        "display_y",
+        "label"
+      ],
+      "title": "Node",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "caveat": {
+          "maxLength": 800,
+          "minLength": 1,
+          "title": "Caveat",
+          "type": "string"
+        },
+        "entity": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Entity",
+          "type": "string"
+        },
+        "field": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Field",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "synthetic",
+            "observed",
+            "estimated"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "source": {
+          "maxLength": 800,
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "timestamp": {
+          "format": "date-time",
+          "title": "Timestamp",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity",
+        "field",
+        "source",
+        "method",
+        "timestamp",
+        "caveat"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Site": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity_per_week": {
+          "maximum": 1000000,
+          "minimum": 0,
+          "title": "Capacity Per Week",
+          "type": "integer"
+        },
+        "eligible": {
+          "title": "Eligible",
+          "type": "boolean"
+        },
+        "fixed_cost_pkr": {
+          "maximum": 100000000,
+          "minimum": 0,
+          "title": "Fixed Cost Pkr",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "node_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+          "title": "Node Id",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "existing",
+            "candidate"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "type",
+        "node_id",
+        "capacity_per_week",
+        "fixed_cost_pkr",
+        "eligible"
+      ],
+      "title": "Site",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assumptions": {
+      "items": {
+        "maxLength": 800,
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 30,
+      "minItems": 1,
+      "title": "Assumptions",
+      "type": "array"
+    },
+    "communities": {
+      "items": {
+        "$ref": "#/$defs/Community"
+      },
+      "maxItems": 200,
+      "minItems": 1,
+      "title": "Communities",
+      "type": "array"
+    },
+    "district_label": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "District Label",
+      "type": "string"
+    },
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/Edge"
+      },
+      "maxItems": 5000,
+      "title": "Edges",
+      "type": "array"
+    },
+    "id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "is_synthetic": {
+      "title": "Is Synthetic",
+      "type": "boolean"
+    },
+    "license": {
+      "maxLength": 160,
+      "minLength": 1,
+      "title": "License",
+      "type": "string"
+    },
+    "model_scope": {
+      "maxLength": 800,
+      "minLength": 1,
+      "title": "Model Scope",
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "#/$defs/Node"
+      },
+      "maxItems": 500,
+      "minItems": 1,
+      "title": "Nodes",
+      "type": "array"
+    },
+    "provenance": {
+      "items": {
+        "$ref": "#/$defs/Provenance"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Provenance",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Sha256",
+      "type": "string"
+    },
+    "sites": {
+      "items": {
+        "$ref": "#/$defs/Site"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Sites",
+      "type": "array"
+    },
+    "source_date": {
+      "format": "date",
+      "title": "Source Date",
+      "type": "string"
+    },
+    "source_url": {
+      "anyOf": [
+        {
+          "maxLength": 2048,
+          "pattern": "^https?://[^\\s]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Url"
+    },
+    "version": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$",
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "district_label",
+    "is_synthetic",
+    "source_url",
+    "source_date",
+    "license",
+    "sha256",
+    "assumptions",
+    "model_scope",
+    "nodes",
+    "edges",
+    "communities",
+    "sites",
+    "provenance"
+  ],
+  "title": "Dataset",
+  "type": "object"
+}

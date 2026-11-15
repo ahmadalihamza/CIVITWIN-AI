@@ -1,0 +1,147 @@
+{
+  "assumptions": [
+    "Total modeled demand is 100 visits and total capacity is 65 visits."
+  ],
+  "communities": [
+    {
+      "demand_visits_per_week": 60,
+      "id": "A",
+      "label": "A",
+      "node_id": "A",
+      "population": null,
+      "zone_class": "Fixture"
+    },
+    {
+      "demand_visits_per_week": 40,
+      "id": "B",
+      "label": "B",
+      "node_id": "B",
+      "population": null,
+      "zone_class": "Fixture"
+    }
+  ],
+  "district_label": "Capacity saturation synthetic test fixture",
+  "edges": [
+    {
+      "direction": "forward",
+      "from_node": "A",
+      "minutes": 10,
+      "to_node": "E"
+    },
+    {
+      "direction": "forward",
+      "from_node": "A",
+      "minutes": 40,
+      "to_node": "N"
+    },
+    {
+      "direction": "forward",
+      "from_node": "B",
+      "minutes": 50,
+      "to_node": "E"
+    },
+    {
+      "direction": "forward",
+      "from_node": "B",
+      "minutes": 10,
+      "to_node": "N"
+    }
+  ],
+  "id": "fixture-saturated-v1",
+  "is_synthetic": true,
+  "license": "CC0-1.0",
+  "model_scope": "Scheduled non-emergency outpatient access over one modeled week.",
+  "nodes": [
+    {
+      "display_x": 0,
+      "display_y": 10,
+      "id": "A",
+      "label": "Node A"
+    },
+    {
+      "display_x": 10,
+      "display_y": 10,
+      "id": "B",
+      "label": "Node B"
+    },
+    {
+      "display_x": 20,
+      "display_y": 10,
+      "id": "E",
+      "label": "Node E"
+    },
+    {
+      "display_x": 30,
+      "display_y": 10,
+      "id": "N",
+      "label": "Node N"
+    }
+  ],
+  "provenance": [
+    {
+      "caveat": "Fictional aggregate visits per modeled week.",
+      "entity": "sites",
+      "field": "capacity_per_week",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Fictional requested visits, not people.",
+      "entity": "communities",
+      "field": "demand_visits_per_week",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Illustrative graph costs, not observed travel times.",
+      "entity": "edges",
+      "field": "minutes",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Illustrative weekly-equivalent planning costs in PKR.",
+      "entity": "sites",
+      "field": "fixed_cost_pkr",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    },
+    {
+      "caveat": "Schematic positions without geographic coordinates.",
+      "entity": "nodes",
+      "field": "display_x/display_y",
+      "method": "synthetic",
+      "source": "CIVITWIN synthetic generator (seed 2026)",
+      "timestamp": "2026-11-13T00:00:00Z"
+    }
+  ],
+  "schema_version": 1,
+  "sha256": "c84c52184a666867c2a97536d63c9209010714055f2e8b893e6ef1c77d6cb4af",
+  "sites": [
+    {
+      "capacity_per_week": 45,
+      "eligible": true,
+      "fixed_cost_pkr": 0,
+      "id": "E",
+      "label": "E",
+      "node_id": "E",
+      "type": "existing"
+    },
+    {
+      "capacity_per_week": 20,
+      "eligible": true,
+      "fixed_cost_pkr": 100,
+      "id": "N",
+      "label": "N",
+      "node_id": "N",
+      "type": "candidate"
+    }
+  ],
+  "source_date": "2026-11-13",
+  "source_url": null,
+  "version": "1.0.0"
+}
