@@ -1,5 +1,6 @@
 import csv
 import io
+from dataclasses import replace
 from pathlib import Path
 from time import monotonic, sleep
 
@@ -182,3 +183,95 @@ def test_malformed_and_invalid_plan_have_safe_error_envelope(client):
     assert invalid.status_code == 422
     assert invalid.json()["field_errors"]
     assert "sensitive-user-value" not in invalid.text
+
+
+def test_greedy_and_paired_stress_persist_with_evidence(settings):
+    with TestClient(create_app(settings), client=("127.0.0.1", 50000)) as client:
+        dataset_id = publish_fixture(client)
+        draft = scenario(client, dataset_id)
+        confirm(client, draft)
+        base = run(client, draft, "baseline", "stress-base")
+        greedy = run(client, draft, "greedy", "stress-greedy")
+        assert greedy["status"] == "COMPLETED" and greedy["result"]["audit"]["passed"]
+        context = client.get(f"{PREFIX}/runs/{greedy['run_id']}/explanation")
+        assert context.status_code == 200, context.text
+        evidence = context.json()
+        assert evidence["mode"] == "template"
+        assert evidence["packet"]["audit_passed"]
+        assert evidence["packet"]["plan_hash"] == draft["plan_hash"]
+        assert evidence["claims"]
+
+        payload = {
+            "baseline_run_id": base["run_id"],
+            "alternative_run_id": greedy["run_id"],
+            "seed": 2026,
+            "case_count": 3,
+        }
+        url = PREFIX + "/stress-runs"
+        header = {"Idempotency-Key": "paired-stress-check"}
+        response = client.post(url, json=payload, headers=header)
+        assert response.status_code == 202, response.text
+        stress_id = response.json()["stress_run_id"]
+        assert client.post(url, json=payload, headers=header).json()["stress_run_id"] == stress_id
+        assert client.post(url, json={**payload, "seed": 7}, headers=header).status_code == 409
+        assert client.post(url, json={**payload, "case_count": 21}).status_code == 422
+        deadline = monotonic() + 15
+        while monotonic() < deadline:
+            snapshot = client.get(f"{url}/{stress_id}").json()
+            if snapshot["status"] not in ("QUEUED", "RUNNING"):
+                break
+            sleep(0.025)
+        assert snapshot["status"] == "COMPLETED", snapshot
+        result = snapshot["results"]
+        assert len(result["cases"]) == 3
+        assert result["baseline_candidates"] == []
+        assert result["alternative_candidates"] == greedy["result"]["selected_candidate_ids"]
+        assert result["plan_hash"] == draft["plan_hash"]
+    with TestClient(create_app(settings)) as client:
+        assert client.get(f"{url}/{stress_id}").json() == snapshot
+
+
+def test_t10_offline_parser_and_explanation_fallback_leave_history_unchanged(client):
+    assert client.get(PREFIX + "/ready").json()["ai_enabled"] is False
+    dataset_id = publish_fixture(client)
+    response = client.post(
+        PREFIX + "/plans/parse",
+        json={
+            "dataset_version_id": dataset_id,
+            "text": "Use a budget of 100 PKR.",
+            "language": "en",
+        },
+    )
+    assert response.status_code == 200, response.text
+    assert response.json()["draft"] is None
+    assert client.get(PREFIX + "/runs").json() == []
+    draft = scenario(client, dataset_id)
+    confirm(client, draft)
+    snapshot = run(client, draft, "baseline", "offline-explanation")
+    path = f"{PREFIX}/runs/{snapshot['run_id']}/explanation"
+    assert client.post(path).json() == client.get(path).json()
+    assert client.get(path).json()["mode"] == "template"
+
+
+def test_untrusted_origin_cannot_trigger_provider_or_scenario(client):
+    response = client.post(
+        PREFIX + "/plans/parse",
+        json={
+            "dataset_version_id": "demo-bajaur-v1",
+            "text": "Use one candidate.",
+            "language": "en",
+        },
+        headers={"Origin": "https://example.invalid"},
+    )
+    assert response.status_code == 403, response.text
+    assert response.json()["code"] == "UNTRUSTED_ORIGIN"
+
+
+def test_invalid_provider_configuration_leaves_demo_ready(settings):
+    configured = replace(
+        settings, ai_enabled=True, llm_endpoint="invalid", llm_model="fixture-only"
+    )
+    with TestClient(create_app(configured)) as client:
+        status = client.get(PREFIX + "/ready")
+        assert status.status_code == 200
+        assert status.json()["ai_enabled"] is False

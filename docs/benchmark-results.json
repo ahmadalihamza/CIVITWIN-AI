@@ -1,0 +1,4464 @@
+{
+  "schema_version": 1,
+  "measured_at_utc": "2026-11-15T06:05:32.922069+00:00",
+  "data_warning": "Synthetic planning fixtures and illustrative scenario sensitivity only.",
+  "machine": {
+    "os": "Windows",
+    "os_release": "10",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 60 Stepping 3, GenuineIntel",
+    "logical_processors": 4
+  },
+  "software": {
+    "model": "1.0",
+    "python": "3.11.9",
+    "ortools": "9.15.6755",
+    "networkx": "3.6.1",
+    "numpy": "2.4.6"
+  },
+  "settings": {
+    "worker_count": 1,
+    "solve_timeout_seconds": 10,
+    "stress_timeout_seconds": 60
+  },
+  "performance_targets": {
+    "default_solve": {
+      "target_ms": 10000,
+      "elapsed_ms": 1547,
+      "passed": true
+    },
+    "default_20_case_stress": {
+      "target_ms": 60000,
+      "elapsed_ms": 6129,
+      "passed": true
+    }
+  },
+  "default_solver_runtime_ms": {
+    "baseline": 125,
+    "greedy": 391,
+    "optimized": 1547
+  },
+  "constraint_audit": {
+    "published_results": 44,
+    "passed": 44,
+    "pass_rate_pct": 100.0,
+    "status_counts": {
+      "COMPLETED": 44,
+      "NO_SOLUTION": 1
+    }
+  },
+  "stress_status": "Measured",
+  "stress": {
+    "elapsed_ms": 6129,
+    "results": {
+      "seed": 2026,
+      "case_count": 20,
+      "cases": [
+        {
+          "case_number": 1,
+          "demand_multiplier_pct": 87,
+          "travel_multiplier_pct": 110,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2258,
+            "covered_visits": 1320,
+            "coverage_pct": 58.45881310894597,
+            "unmet_rate_pct": 41.54118689105403,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 14.137878787878789,
+            "audit_passed": true,
+            "audit_hash": "7d3aa1e49e99384f37148f3b7d4d5a3667b9249001266a16297bca4fb626abd0",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2258,
+            "covered_visits": 1853,
+            "coverage_pct": 82.0637732506643,
+            "unmet_rate_pct": 17.936226749335695,
+            "worst_cluster_coverage_pct": 81.63265306122449,
+            "mean_assigned_travel_minutes": 20.103615758229896,
+            "audit_passed": true,
+            "audit_hash": "756c413d703162584f0bc1e84ff04fc4b530c7d4a1a9ee8bb6a4e4959721ef0e",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 2,
+          "demand_multiplier_pct": 112,
+          "travel_multiplier_pct": 122,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2910,
+            "covered_visits": 1320,
+            "coverage_pct": 45.36082474226804,
+            "unmet_rate_pct": 54.63917525773196,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.918939393939393,
+            "audit_passed": true,
+            "audit_hash": "66cf02f55f64c62840a6612b50ca149bdc3ecdc4554d33933661f17f586e7ea4",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2910,
+            "covered_visits": 1853,
+            "coverage_pct": 63.67697594501718,
+            "unmet_rate_pct": 36.32302405498282,
+            "worst_cluster_coverage_pct": 51.515151515151516,
+            "mean_assigned_travel_minutes": 16.965461413923368,
+            "audit_passed": true,
+            "audit_hash": "56d862e3d083e33171f9314dc5f3cb74ab9811c572853f5394a6935457171bae",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 3,
+          "demand_multiplier_pct": 121,
+          "travel_multiplier_pct": 96,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3143,
+            "covered_visits": 1320,
+            "coverage_pct": 41.998090995863826,
+            "unmet_rate_pct": 58.001909004136174,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 7.75530303030303,
+            "audit_passed": true,
+            "audit_hash": "77259b0740d26d704e8aaa74ff0c8673ec8da8edd758b9f1ddc19c7833d1a707",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3143,
+            "covered_visits": 1853,
+            "coverage_pct": 58.95641107222399,
+            "unmet_rate_pct": 41.04358892777601,
+            "worst_cluster_coverage_pct": 58.638743455497384,
+            "mean_assigned_travel_minutes": 16.62655153804641,
+            "audit_passed": true,
+            "audit_hash": "20ab837926bbc301e732651b9415442f64013a2710b7c8875559a298487b11ec",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 4,
+          "demand_multiplier_pct": 94,
+          "travel_multiplier_pct": 128,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2445,
+            "covered_visits": 1320,
+            "coverage_pct": 53.987730061349694,
+            "unmet_rate_pct": 46.012269938650306,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 14.471969696969698,
+            "audit_passed": true,
+            "audit_hash": "97528e865c06b0ee2a4295f74d8dd2cfdb35a39e9c58adc68d57c9c8a966e55f",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2445,
+            "covered_visits": 1853,
+            "coverage_pct": 75.78732106339469,
+            "unmet_rate_pct": 24.212678936605318,
+            "worst_cluster_coverage_pct": 61.224489795918366,
+            "mean_assigned_travel_minutes": 18.5364274150027,
+            "audit_passed": true,
+            "audit_hash": "a83dd809ebbef24396184c12fa179beaf821f7a9af29d0ff59be0bc1c2b55e84",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 5,
+          "demand_multiplier_pct": 119,
+          "travel_multiplier_pct": 125,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3093,
+            "covered_visits": 1320,
+            "coverage_pct": 42.67701260911736,
+            "unmet_rate_pct": 57.32298739088264,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.371212121212121,
+            "audit_passed": true,
+            "audit_hash": "524b6fa06e59f9dffabd9492e32bb03fc6ffccedd6642d427b2fbc8b41b78d5d",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3093,
+            "covered_visits": 1853,
+            "coverage_pct": 59.90947300355642,
+            "unmet_rate_pct": 40.09052699644358,
+            "worst_cluster_coverage_pct": 48.38709677419355,
+            "mean_assigned_travel_minutes": 16.915272531030762,
+            "audit_passed": true,
+            "audit_hash": "7cdb40d57e5858d381cd3e6183918aebc010e40c05c42d6db24c0ce2b88e2208",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 6,
+          "demand_multiplier_pct": 106,
+          "travel_multiplier_pct": 140,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2751,
+            "covered_visits": 1320,
+            "coverage_pct": 47.98255179934569,
+            "unmet_rate_pct": 52.01744820065431,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 13.05,
+            "audit_passed": true,
+            "audit_hash": "3014846ac92d4be68e10f93f68c250848548515d39d8427745b76fcf5693b7a5",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2751,
+            "covered_visits": 1853,
+            "coverage_pct": 67.357324609233,
+            "unmet_rate_pct": 32.642675390766996,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 14.082029141932003,
+            "audit_passed": true,
+            "audit_hash": "60f3e4af6560ddba816b69e22391c51f16901fa76f8f7b8f8f877e22f20e5bee",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 7,
+          "demand_multiplier_pct": 116,
+          "travel_multiplier_pct": 125,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3014,
+            "covered_visits": 1320,
+            "coverage_pct": 43.7956204379562,
+            "unmet_rate_pct": 56.2043795620438,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.662878787878787,
+            "audit_passed": true,
+            "audit_hash": "2d271e3a028584dae2b22163ebf08910fca4ae33af7d29eaf8a7b7f3d92d9fd3",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3014,
+            "covered_visits": 1853,
+            "coverage_pct": 61.47976111479761,
+            "unmet_rate_pct": 38.52023888520239,
+            "worst_cluster_coverage_pct": 49.63503649635037,
+            "mean_assigned_travel_minutes": 17.056125202374528,
+            "audit_passed": true,
+            "audit_hash": "0463e21ca6cbb990ce325f1c1d8aa8c811b54e8d2c465ede32e9783c631ba880",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 8,
+          "demand_multiplier_pct": 126,
+          "travel_multiplier_pct": 139,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3275,
+            "covered_visits": 1320,
+            "coverage_pct": 40.30534351145038,
+            "unmet_rate_pct": 59.69465648854962,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.854545454545455,
+            "audit_passed": true,
+            "audit_hash": "9e9793884d601bd8b79a72e8781c58776b4ae465969534e2c4f6159a73e08e69",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3275,
+            "covered_visits": 1853,
+            "coverage_pct": 56.58015267175573,
+            "unmet_rate_pct": 43.41984732824427,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 11.81651376146789,
+            "audit_passed": true,
+            "audit_hash": "0dfd229b3714a8a9f9fc2cb4044f82d27ded962dda5f5a86f24be8ff49eeb669",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 9,
+          "demand_multiplier_pct": 129,
+          "travel_multiplier_pct": 121,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3352,
+            "covered_visits": 1320,
+            "coverage_pct": 39.37947494033413,
+            "unmet_rate_pct": 60.62052505966587,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 9.241666666666667,
+            "audit_passed": true,
+            "audit_hash": "9460817897ae1ca80ee7937cea18f1bd33065d6acc56d5b9b25b7e460e7ee5af",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3352,
+            "covered_visits": 1853,
+            "coverage_pct": 55.28042959427208,
+            "unmet_rate_pct": 44.71957040572792,
+            "worst_cluster_coverage_pct": 44.73684210526316,
+            "mean_assigned_travel_minutes": 15.98165137614679,
+            "audit_passed": true,
+            "audit_hash": "2e03407c54351e2d4f3794ed9e51c7bb8155fd7f6a95ae99bbe218543486aae7",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 10,
+          "demand_multiplier_pct": 128,
+          "travel_multiplier_pct": 139,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3324,
+            "covered_visits": 1320,
+            "coverage_pct": 39.711191335740075,
+            "unmet_rate_pct": 60.288808664259925,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.651515151515152,
+            "audit_passed": true,
+            "audit_hash": "1e3643bb4c0ab4940b23c9be43c8fcdf79d4cdd54031ef2762f6208a4d9a076c",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3324,
+            "covered_visits": 1853,
+            "coverage_pct": 55.746089049338146,
+            "unmet_rate_pct": 44.253910950661854,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 11.607663248785753,
+            "audit_passed": true,
+            "audit_hash": "222fe9ea92e561444017474c37f82a1a576f631838ccc444da9021de37cd6fcf",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 11,
+          "demand_multiplier_pct": 117,
+          "travel_multiplier_pct": 118,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3040,
+            "covered_visits": 1320,
+            "coverage_pct": 43.421052631578945,
+            "unmet_rate_pct": 56.578947368421055,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 9.986363636363636,
+            "audit_passed": true,
+            "audit_hash": "49cef11b535203c87dbeda296b040f48cfcbf26bfa0842a7d94b5573c87f8c73",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3040,
+            "covered_visits": 1853,
+            "coverage_pct": 60.953947368421055,
+            "unmet_rate_pct": 39.046052631578945,
+            "worst_cluster_coverage_pct": 49.18032786885246,
+            "mean_assigned_travel_minutes": 16.05774419859687,
+            "audit_passed": true,
+            "audit_hash": "44fe5026a0151b3f528e9cab563246c640e757a8920bc97e07f4b17097af01e7",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 12,
+          "demand_multiplier_pct": 95,
+          "travel_multiplier_pct": 90,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2469,
+            "covered_visits": 1320,
+            "coverage_pct": 53.462940461725395,
+            "unmet_rate_pct": 46.537059538274605,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.059848484848485,
+            "audit_passed": true,
+            "audit_hash": "b69579d1ff3a145617461e3c01ea554b9e21e2e823d6dcc231802d21dde517fe",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2469,
+            "covered_visits": 1853,
+            "coverage_pct": 75.05062778452815,
+            "unmet_rate_pct": 24.94937221547185,
+            "worst_cluster_coverage_pct": 74.66666666666667,
+            "mean_assigned_travel_minutes": 15.669724770642201,
+            "audit_passed": true,
+            "audit_hash": "fd00f4883f5f989a13aec6894ed8a414399d69eb0a7a6d0495b6ac13746adb0b",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 13,
+          "demand_multiplier_pct": 119,
+          "travel_multiplier_pct": 95,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3093,
+            "covered_visits": 1320,
+            "coverage_pct": 42.67701260911736,
+            "unmet_rate_pct": 57.32298739088264,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 7.79469696969697,
+            "audit_passed": true,
+            "audit_hash": "a2fd97f8ae3a0c4bb6f035566a1df335ce9af6dc5bc56319c728660f160bf6ee",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 3093,
+            "covered_visits": 1853,
+            "coverage_pct": 59.90947300355642,
+            "unmet_rate_pct": 40.09052699644358,
+            "worst_cluster_coverage_pct": 59.57446808510638,
+            "mean_assigned_travel_minutes": 16.481381543443064,
+            "audit_passed": true,
+            "audit_hash": "00f3ff680d5efea8f09de9537911f57c6ebd83a4fee63348ed43a3f6a20bdb91",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 14,
+          "demand_multiplier_pct": 87,
+          "travel_multiplier_pct": 108,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2258,
+            "covered_visits": 1320,
+            "coverage_pct": 58.45881310894597,
+            "unmet_rate_pct": 41.54118689105403,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 13.844696969696969,
+            "audit_passed": true,
+            "audit_hash": "9369e535f1561f4bef0a811867474143c1476d3c5f31f7c0ae2aa99b15d3ee98",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2258,
+            "covered_visits": 1853,
+            "coverage_pct": 82.0637732506643,
+            "unmet_rate_pct": 17.936226749335695,
+            "worst_cluster_coverage_pct": 81.63265306122449,
+            "mean_assigned_travel_minutes": 19.64112250404749,
+            "audit_passed": true,
+            "audit_hash": "aa8352436065cdea77ab6a484946b4662337de23d21a7ba01229fbc236388337",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 15,
+          "demand_multiplier_pct": 86,
+          "travel_multiplier_pct": 118,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2231,
+            "covered_visits": 1320,
+            "coverage_pct": 59.16629314208875,
+            "unmet_rate_pct": 40.83370685791125,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 15.409090909090908,
+            "audit_passed": true,
+            "audit_hash": "8ef70c4b43b6e4a553c61857fb9c37d59f50772f469db318e5fa6bb839bd8adf",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2231,
+            "covered_visits": 1853,
+            "coverage_pct": 83.05692514567458,
+            "unmet_rate_pct": 16.943074854325413,
+            "worst_cluster_coverage_pct": 66.66666666666667,
+            "mean_assigned_travel_minutes": 17.716135995682677,
+            "audit_passed": true,
+            "audit_hash": "897cce9dba8d3f90ca190e55efb9e9a171e694aa2b788033f7c6cbff995df8c9",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 16,
+          "demand_multiplier_pct": 80,
+          "travel_multiplier_pct": 133,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2074,
+            "covered_visits": 1320,
+            "coverage_pct": 63.64513018322083,
+            "unmet_rate_pct": 36.35486981677917,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 19.842424242424244,
+            "audit_passed": true,
+            "audit_hash": "c1713e78825465609f2823bc36ade4cf49c6a254d9d07eb562b7d3f7d3ce28c2",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2074,
+            "covered_visits": 1853,
+            "coverage_pct": 89.34426229508196,
+            "unmet_rate_pct": 10.655737704918034,
+            "worst_cluster_coverage_pct": 71.81818181818181,
+            "mean_assigned_travel_minutes": 21.153804641122505,
+            "audit_passed": true,
+            "audit_hash": "ab9eb99fd3c9124389dfbea4a4a8fbbbc4e9590c5998ec50e6eed160a220429b",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 17,
+          "demand_multiplier_pct": 111,
+          "travel_multiplier_pct": 133,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2881,
+            "covered_visits": 1320,
+            "coverage_pct": 45.817424505380075,
+            "unmet_rate_pct": 54.182575494619925,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 11.871212121212121,
+            "audit_passed": true,
+            "audit_hash": "3ba6d79b54f8219e4e0d3bc1ba441d055370efc8739567e73c5a44c9efd611e9",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2881,
+            "covered_visits": 1853,
+            "coverage_pct": 64.31794515793128,
+            "unmet_rate_pct": 35.68205484206872,
+            "worst_cluster_coverage_pct": 51.724137931034484,
+            "mean_assigned_travel_minutes": 18.433351322180247,
+            "audit_passed": true,
+            "audit_hash": "6ff429b90a47a29bbcf10a60ac1a8a4de044e68b65e853f2853adca719f6cae1",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 18,
+          "demand_multiplier_pct": 100,
+          "travel_multiplier_pct": 103,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2598,
+            "covered_visits": 1320,
+            "coverage_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.487121212121211,
+            "audit_passed": true,
+            "audit_hash": "ff4d5a1d92fb014f7ddb8e87abdae294ec8b75dc5f871127088b4e5b40e31e3c",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2598,
+            "covered_visits": 1853,
+            "coverage_pct": 71.32409545804465,
+            "unmet_rate_pct": 28.67590454195535,
+            "worst_cluster_coverage_pct": 70.88607594936708,
+            "mean_assigned_travel_minutes": 17.912574203993525,
+            "audit_passed": true,
+            "audit_hash": "fca964d701c99d077fc9840d5386ff7c6063df3482223ce73f3c732f4cf90079",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 19,
+          "demand_multiplier_pct": 105,
+          "travel_multiplier_pct": 106,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2728,
+            "covered_visits": 1320,
+            "coverage_pct": 48.38709677419355,
+            "unmet_rate_pct": 51.61290322580645,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 10.01969696969697,
+            "audit_passed": true,
+            "audit_hash": "fd034a0b108324fc747836ad7ad56ff0a90f0e6bc1b162367512958806bc751a",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2728,
+            "covered_visits": 1853,
+            "coverage_pct": 67.92521994134897,
+            "unmet_rate_pct": 32.07478005865103,
+            "worst_cluster_coverage_pct": 67.46987951807229,
+            "mean_assigned_travel_minutes": 19.317323259579062,
+            "audit_passed": true,
+            "audit_hash": "7132961f5a74a2772a0c88ade709484bbdaee43a50bf1f5f37b995f0541e34ef",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        },
+        {
+          "case_number": 20,
+          "demand_multiplier_pct": 102,
+          "travel_multiplier_pct": 112,
+          "baseline": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2649,
+            "covered_visits": 1320,
+            "coverage_pct": 49.83012457531144,
+            "unmet_rate_pct": 50.16987542468856,
+            "worst_cluster_coverage_pct": 0.0,
+            "mean_assigned_travel_minutes": 11.136363636363637,
+            "audit_passed": true,
+            "audit_hash": "36a92c9914e833faa3527185671c561608f79f540c632ce567b453f19fe5128f",
+            "selected_candidate_ids": []
+          },
+          "alternative": {
+            "status": "COMPLETED",
+            "solver_status": "OPTIMAL",
+            "total_demand": 2649,
+            "covered_visits": 1853,
+            "coverage_pct": 69.95092487731219,
+            "unmet_rate_pct": 30.049075122687807,
+            "worst_cluster_coverage_pct": 56.60377358490566,
+            "mean_assigned_travel_minutes": 15.899622234214787,
+            "audit_passed": true,
+            "audit_hash": "a4c72a013839d5ef5cf68745d6748a9bbe88b159bdcbe281cb57dea111fd15d6",
+            "selected_candidate_ids": [
+              "N01",
+              "N06"
+            ]
+          }
+        }
+      ],
+      "baseline": {
+        "successful_cases": 20,
+        "failed_cases": 0,
+        "excluded_cases": 0,
+        "failure_rate_pct": 0.0,
+        "coverage_pct": {
+          "min": 39.37947494033413,
+          "max": 63.64513018322083,
+          "median": 46.89998815236288,
+          "p10": 40.24592829387935,
+          "p90": 58.52956111226025,
+          "sample_count": 20
+        },
+        "unmet_rate_pct": {
+          "min": 36.35486981677917,
+          "max": 60.62052505966587,
+          "median": 53.10001184763712,
+          "p10": 41.47043888773975,
+          "p90": 59.75407170612065,
+          "sample_count": 20
+        },
+        "worst_cluster_coverage_pct": {
+          "min": 0.0,
+          "max": 0.0,
+          "median": 0.0,
+          "p10": 0.0,
+          "p90": 0.0,
+          "sample_count": 20
+        },
+        "mean_assigned_travel_minutes": {
+          "min": 7.75530303030303,
+          "max": 19.842424242424244,
+          "median": 10.75871212121212,
+          "p10": 9.096969696969698,
+          "p90": 14.565681818181819,
+          "sample_count": 20
+        }
+      },
+      "alternative": {
+        "successful_cases": 20,
+        "failed_cases": 0,
+        "excluded_cases": 0,
+        "failure_rate_pct": 0.0,
+        "coverage_pct": {
+          "min": 55.28042959427208,
+          "max": 89.34426229508196,
+          "median": 65.83763488358214,
+          "p10": 56.496746309513966,
+          "p90": 82.16308844016532,
+          "sample_count": 20
+        },
+        "unmet_rate_pct": {
+          "min": 10.655737704918034,
+          "max": 44.71957040572792,
+          "median": 34.16236511641786,
+          "p10": 17.836911559834668,
+          "p90": 43.503253690486034,
+          "sample_count": 20
+        },
+        "worst_cluster_coverage_pct": {
+          "min": 0.0,
+          "max": 81.63265306122449,
+          "median": 57.62125852020152,
+          "p10": 0.0,
+          "p90": 75.36326530612246,
+          "sample_count": 20
+        },
+        "mean_assigned_travel_minutes": {
+          "min": 11.607663248785753,
+          "max": 21.153804641122505,
+          "median": 16.940366972477065,
+          "p10": 13.855477603885591,
+          "p90": 19.687371829465732,
+          "sample_count": 20
+        }
+      },
+      "paired_success_count": 20,
+      "runtime_ms": 6125,
+      "cancelled": false,
+      "assumptions": [
+        "Demand draws are 80–130% of approved demand assumptions and travel draws are 90–140%.",
+        "Draws use a local seeded integer generator and are shared by both allocations.",
+        "Weekly visits are rounded half up once after multiplying raw demand by both percentages.",
+        "The shortest-path travel matrix is scaled once, half up. Unreachable pairs stay unreachable.",
+        "Selected candidate sites remain fixed. Assignments are solved and audited for each side.",
+        "P10 and P90 interpolate linearly between ranks (n−1)×p in each successful sample.",
+        "These ranges describe tested scenarios. They are not confidence intervals or forecasts."
+      ],
+      "dataset_sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+      "plan_hash": "40562808f4d4e55bb39d644b3a08ffafa29b33d29bc32896268c47eb48167705"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "bajaur-0-0",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 0,
+        "max_new_units": 0,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "6c00142ff0d1b40f1d9547adb80f904a3a25b3d079cfa42f895e6a83b69d28f6",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 219,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 110,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 171,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        },
+        "optimized": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-0-1",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 0,
+        "max_new_units": 1,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "1437f4935e55664c039f10a003a3b73ca61107fa8e4a39e899e979e7cd0aa99f",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 110,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 109,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 188,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        },
+        "optimized": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-0-2",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 0,
+        "max_new_units": 2,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "242a3e94c4d038d76fb3411fef3b4b9c0f65d42263ebe8683222d5ec807bfc35",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 94,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 109,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 188,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 0,
+            "budget_utilization_pct": null
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d7d4f6fcb485edaa0a8da6c7246a8d6992c1cd29511577f2c20312715a04506a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        },
+        "optimized": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-150000-0",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 150000,
+        "max_new_units": 0,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "87c0c9b29ac6f49cb93afb9e54194ebfa4d3ab218c1c0d33376e0802f61f3fe2",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 141,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "3729feee7783d2efcd9fbe17dc6354f487b69044af81735f4963cc06b0d46eb7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 93,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "3729feee7783d2efcd9fbe17dc6354f487b69044af81735f4963cc06b0d46eb7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 203,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "3729feee7783d2efcd9fbe17dc6354f487b69044af81735f4963cc06b0d46eb7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        },
+        "optimized": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-150000-1",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 150000,
+        "max_new_units": 1,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "ab3fd2e8df6370ea927a06e5b63e37cf6300151ae116746d62005ef1b78d78d5",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 141,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "3729feee7783d2efcd9fbe17dc6354f487b69044af81735f4963cc06b0d46eb7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 188,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N01"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1555,
+            "unmet_visits": 1043,
+            "covered_visits": 1555,
+            "visit_minutes": 15082,
+            "served_rate_pct": 59.85373364126251,
+            "unmet_rate_pct": 40.14626635873749,
+            "coverage_pct": 59.85373364126251,
+            "mean_assigned_travel_minutes": 9.69903536977492,
+            "worst_cluster_id": "C05",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 115000,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 76.66666666666667
+          },
+          "audit_passed": true,
+          "audit_result_hash": "4c59920081d5282b9ae77d5f7ad7a6138b616a0e6ba54fcc0d6c7414a6042a7a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 15082,
+              "best_bound": 15082.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 115000,
+              "best_bound": 115000.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 343,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N01"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1555,
+            "unmet_visits": 1043,
+            "covered_visits": 1555,
+            "visit_minutes": 15082,
+            "served_rate_pct": 59.85373364126251,
+            "unmet_rate_pct": 40.14626635873749,
+            "coverage_pct": 59.85373364126251,
+            "mean_assigned_travel_minutes": 9.69903536977492,
+            "worst_cluster_id": "C05",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 115000,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 76.66666666666667
+          },
+          "audit_passed": true,
+          "audit_result_hash": "4c59920081d5282b9ae77d5f7ad7a6138b616a0e6ba54fcc0d6c7414a6042a7a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 15082,
+              "best_bound": 15082.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 115000,
+              "best_bound": 115000.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 235,
+          "served_visits": 235,
+          "unmet_visits": -235,
+          "coverage_pp": 9.04541955350269,
+          "served_rate_pp": 9.04541955350269,
+          "unmet_rate_pp": -9.04541955350269,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": -0.5403585696190198,
+          "cost_pkr": 115000,
+          "additional_cost_per_added_covered_visit": 489.36170212765956
+        },
+        "optimized": {
+          "covered_visits": 235,
+          "served_visits": 235,
+          "unmet_visits": -235,
+          "coverage_pp": 9.04541955350269,
+          "served_rate_pp": 9.04541955350269,
+          "unmet_rate_pp": -9.04541955350269,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": -0.5403585696190198,
+          "cost_pkr": 115000,
+          "additional_cost_per_added_covered_visit": 489.36170212765956
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-150000-2",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 150000,
+        "max_new_units": 2,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "98de8a31d7c8276da2068cdc9d6cfd1cbcc959aacd6e26e6dcb1d39a8e56c7d4",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 125,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "3729feee7783d2efcd9fbe17dc6354f487b69044af81735f4963cc06b0d46eb7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 235,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N01"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1555,
+            "unmet_visits": 1043,
+            "covered_visits": 1555,
+            "visit_minutes": 15082,
+            "served_rate_pct": 59.85373364126251,
+            "unmet_rate_pct": 40.14626635873749,
+            "coverage_pct": 59.85373364126251,
+            "mean_assigned_travel_minutes": 9.69903536977492,
+            "worst_cluster_id": "C05",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 115000,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 76.66666666666667
+          },
+          "audit_passed": true,
+          "audit_result_hash": "4c59920081d5282b9ae77d5f7ad7a6138b616a0e6ba54fcc0d6c7414a6042a7a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 15082,
+              "best_bound": 15082.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 115000,
+              "best_bound": 115000.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 375,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N01"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1555,
+            "unmet_visits": 1043,
+            "covered_visits": 1555,
+            "visit_minutes": 15082,
+            "served_rate_pct": 59.85373364126251,
+            "unmet_rate_pct": 40.14626635873749,
+            "coverage_pct": 59.85373364126251,
+            "mean_assigned_travel_minutes": 9.69903536977492,
+            "worst_cluster_id": "C05",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 115000,
+            "budget_pkr": 150000,
+            "budget_utilization_pct": 76.66666666666667
+          },
+          "audit_passed": true,
+          "audit_result_hash": "4c59920081d5282b9ae77d5f7ad7a6138b616a0e6ba54fcc0d6c7414a6042a7a",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 15082,
+              "best_bound": 15082.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 115000,
+              "best_bound": 115000.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 235,
+          "served_visits": 235,
+          "unmet_visits": -235,
+          "coverage_pp": 9.04541955350269,
+          "served_rate_pp": 9.04541955350269,
+          "unmet_rate_pp": -9.04541955350269,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": -0.5403585696190198,
+          "cost_pkr": 115000,
+          "additional_cost_per_added_covered_visit": 489.36170212765956
+        },
+        "optimized": {
+          "covered_visits": 235,
+          "served_visits": 235,
+          "unmet_visits": -235,
+          "coverage_pp": 9.04541955350269,
+          "served_rate_pp": 9.04541955350269,
+          "unmet_rate_pp": -9.04541955350269,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": -0.5403585696190198,
+          "cost_pkr": 115000,
+          "additional_cost_per_added_covered_visit": 489.36170212765956
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-300000-0",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 300000,
+        "max_new_units": 0,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "d1e1c33ae2d1ef42e498b46d9ee9c733fa36fd391e6e14019336e26bbf6f3bdc",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 187,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "c371efbe76f6973d598ec41aebe2f2479bae84a0969c1c97d4c46dcc6ae791c7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 110,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "c371efbe76f6973d598ec41aebe2f2479bae84a0969c1c97d4c46dcc6ae791c7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 187,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "c371efbe76f6973d598ec41aebe2f2479bae84a0969c1c97d4c46dcc6ae791c7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        },
+        "optimized": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-300000-1",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 300000,
+        "max_new_units": 1,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "d2b1c71cef03e3c3d033a8f82dcc51604ff3675fd985d598f173d7be9ee618bc",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 93,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "c371efbe76f6973d598ec41aebe2f2479bae84a0969c1c97d4c46dcc6ae791c7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 204,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N01"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1555,
+            "unmet_visits": 1043,
+            "covered_visits": 1555,
+            "visit_minutes": 15082,
+            "served_rate_pct": 59.85373364126251,
+            "unmet_rate_pct": 40.14626635873749,
+            "coverage_pct": 59.85373364126251,
+            "mean_assigned_travel_minutes": 9.69903536977492,
+            "worst_cluster_id": "C05",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 115000,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 38.333333333333336
+          },
+          "audit_passed": true,
+          "audit_result_hash": "44f92b8ec7f2c636ded14de6b787bbdd9412bd372c1ed2cd958c4cd8eff4f98c",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 15082,
+              "best_bound": 15082.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 115000,
+              "best_bound": 115000.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 546,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N06"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1618,
+            "unmet_visits": 980,
+            "covered_visits": 1618,
+            "visit_minutes": 18634,
+            "served_rate_pct": 62.278675904541956,
+            "unmet_rate_pct": 37.721324095458044,
+            "coverage_pct": 62.278675904541956,
+            "mean_assigned_travel_minutes": 11.516687268232385,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 152000,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 50.666666666666664
+          },
+          "audit_passed": true,
+          "audit_result_hash": "d84c6140f4003df905c04f7419b9d4d55713f8d32e337230095bd14ae488c2fc",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1618,
+              "best_bound": 1618.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1618,
+              "best_bound": 1618.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 18634,
+              "best_bound": 18634.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 152000,
+              "best_bound": 152000.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 235,
+          "served_visits": 235,
+          "unmet_visits": -235,
+          "coverage_pp": 9.04541955350269,
+          "served_rate_pp": 9.04541955350269,
+          "unmet_rate_pp": -9.04541955350269,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": -0.5403585696190198,
+          "cost_pkr": 115000,
+          "additional_cost_per_added_covered_visit": 489.36170212765956
+        },
+        "optimized": {
+          "covered_visits": 298,
+          "served_visits": 298,
+          "unmet_visits": -298,
+          "coverage_pp": 11.470361816782138,
+          "served_rate_pp": 11.470361816782138,
+          "unmet_rate_pp": -11.470361816782138,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 1.2772933288384447,
+          "cost_pkr": 152000,
+          "additional_cost_per_added_covered_visit": 510.06711409395973
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-default",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 300000,
+        "max_new_units": 2,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "40562808f4d4e55bb39d644b3a08ffafa29b33d29bc32896268c47eb48167705",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 125,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "c371efbe76f6973d598ec41aebe2f2479bae84a0969c1c97d4c46dcc6ae791c7",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 391,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N01",
+            "N07"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1781,
+            "unmet_visits": 817,
+            "covered_visits": 1781,
+            "visit_minutes": 25333,
+            "served_rate_pct": 68.55273287143957,
+            "unmet_rate_pct": 31.44726712856043,
+            "coverage_pct": 68.55273287143957,
+            "mean_assigned_travel_minutes": 14.224031443009546,
+            "worst_cluster_id": "C12",
+            "worst_cluster_coverage_pct": 51.351351351351354,
+            "equity_gap_pp": 48.648648648648646,
+            "cost_pkr": 230000,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 76.66666666666667
+          },
+          "audit_passed": true,
+          "audit_result_hash": "768a365714d1bae175a934be9a89d617d6fc6c29758c2257763b9b1a55b57e1f",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1781,
+              "best_bound": 1781.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1781,
+              "best_bound": 1781.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 5135,
+              "best_bound": 5135.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 25333,
+              "best_bound": 25333.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 230000,
+              "best_bound": 230000.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 1547,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N01",
+            "N06"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1853,
+            "unmet_visits": 745,
+            "covered_visits": 1853,
+            "visit_minutes": 32161,
+            "served_rate_pct": 71.32409545804465,
+            "unmet_rate_pct": 28.67590454195535,
+            "coverage_pct": 71.32409545804465,
+            "mean_assigned_travel_minutes": 17.356179168915272,
+            "worst_cluster_id": "C17",
+            "worst_cluster_coverage_pct": 70.88607594936708,
+            "equity_gap_pp": 1.2293086660175268,
+            "cost_pkr": 267000,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 89.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "c735066f5da478d1e38eaa1d6252b3a6b0d74f20e8be8e53a68c8088c84afdc0",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1853,
+              "best_bound": 1853.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1853,
+              "best_bound": 1853.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 7088,
+              "best_bound": 7088.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 32161,
+              "best_bound": 32161.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 267000,
+              "best_bound": 267000.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 461,
+          "served_visits": 461,
+          "unmet_visits": -461,
+          "coverage_pp": 17.744418783679755,
+          "served_rate_pp": 17.744418783679755,
+          "unmet_rate_pp": -17.744418783679752,
+          "worst_cluster_coverage_pp": 51.351351351351354,
+          "equity_gap_pp": -51.351351351351354,
+          "mean_assigned_travel_minutes": 3.9846375036156054,
+          "cost_pkr": 230000,
+          "additional_cost_per_added_covered_visit": 498.91540130151844
+        },
+        "optimized": {
+          "covered_visits": 533,
+          "served_visits": 533,
+          "unmet_visits": -533,
+          "coverage_pp": 20.515781370284834,
+          "served_rate_pp": 20.515781370284834,
+          "unmet_rate_pp": -20.51578137028483,
+          "worst_cluster_coverage_pp": 70.88607594936708,
+          "equity_gap_pp": -98.77069133398247,
+          "mean_assigned_travel_minutes": 7.116785229521332,
+          "cost_pkr": 267000,
+          "additional_cost_per_added_covered_visit": 500.93808630393994
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-450000-0",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 450000,
+        "max_new_units": 0,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "eeee98537bfd8a93f6201d88c766cf3654746bbf160cb25dccc73996162c2d12",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 93,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "31312999aeb3d294221d99130746a044a22f88e50d6c265b0c765be14a951226",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 94,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "31312999aeb3d294221d99130746a044a22f88e50d6c265b0c765be14a951226",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 141,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "31312999aeb3d294221d99130746a044a22f88e50d6c265b0c765be14a951226",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        },
+        "optimized": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-450000-1",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 450000,
+        "max_new_units": 1,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "d46183987b71ddb919b2d1cfeb167090e49d5953c1b9312487c47f6d3b9e8522",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 78,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "31312999aeb3d294221d99130746a044a22f88e50d6c265b0c765be14a951226",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 125,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N01"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1555,
+            "unmet_visits": 1043,
+            "covered_visits": 1555,
+            "visit_minutes": 15082,
+            "served_rate_pct": 59.85373364126251,
+            "unmet_rate_pct": 40.14626635873749,
+            "coverage_pct": 59.85373364126251,
+            "mean_assigned_travel_minutes": 9.69903536977492,
+            "worst_cluster_id": "C05",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 115000,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 25.555555555555557
+          },
+          "audit_passed": true,
+          "audit_result_hash": "6c36e24fbe022d4c99d7ef5090652db94d9ccf2103a3d9e87ac2ea84e4b0c475",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1555,
+              "best_bound": 1555.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 15082,
+              "best_bound": 15082.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 115000,
+              "best_bound": 115000.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 312,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N06"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1618,
+            "unmet_visits": 980,
+            "covered_visits": 1618,
+            "visit_minutes": 18634,
+            "served_rate_pct": 62.278675904541956,
+            "unmet_rate_pct": 37.721324095458044,
+            "coverage_pct": 62.278675904541956,
+            "mean_assigned_travel_minutes": 11.516687268232385,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 152000,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 33.77777777777778
+          },
+          "audit_passed": true,
+          "audit_result_hash": "f9db418aad428a6fc203b41badd9e5a810cb970275fd4a267014ca19d9d3a618",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1618,
+              "best_bound": 1618.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1618,
+              "best_bound": 1618.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 18634,
+              "best_bound": 18634.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 152000,
+              "best_bound": 152000.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 235,
+          "served_visits": 235,
+          "unmet_visits": -235,
+          "coverage_pp": 9.04541955350269,
+          "served_rate_pp": 9.04541955350269,
+          "unmet_rate_pp": -9.04541955350269,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": -0.5403585696190198,
+          "cost_pkr": 115000,
+          "additional_cost_per_added_covered_visit": 489.36170212765956
+        },
+        "optimized": {
+          "covered_visits": 298,
+          "served_visits": 298,
+          "unmet_visits": -298,
+          "coverage_pp": 11.470361816782138,
+          "served_rate_pp": 11.470361816782138,
+          "unmet_rate_pp": -11.470361816782138,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 1.2772933288384447,
+          "cost_pkr": 152000,
+          "additional_cost_per_added_covered_visit": 510.06711409395973
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-450000-2",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 450000,
+        "max_new_units": 2,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "c444e1e0f0a7d64be227955cf1f87dae3a3b2ad27dfa613cf52f0884d742a685",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 125,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1320,
+            "unmet_visits": 1278,
+            "covered_visits": 1320,
+            "visit_minutes": 13516,
+            "served_rate_pct": 50.80831408775982,
+            "unmet_rate_pct": 49.19168591224018,
+            "coverage_pct": 50.80831408775982,
+            "mean_assigned_travel_minutes": 10.23939393939394,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "31312999aeb3d294221d99130746a044a22f88e50d6c265b0c765be14a951226",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1320,
+              "best_bound": 1320.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 13516,
+              "best_bound": 13516.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 235,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N01",
+            "N07"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1781,
+            "unmet_visits": 817,
+            "covered_visits": 1781,
+            "visit_minutes": 25333,
+            "served_rate_pct": 68.55273287143957,
+            "unmet_rate_pct": 31.44726712856043,
+            "coverage_pct": 68.55273287143957,
+            "mean_assigned_travel_minutes": 14.224031443009546,
+            "worst_cluster_id": "C12",
+            "worst_cluster_coverage_pct": 51.351351351351354,
+            "equity_gap_pp": 48.648648648648646,
+            "cost_pkr": 230000,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 51.111111111111114
+          },
+          "audit_passed": true,
+          "audit_result_hash": "8e9a04d72b62eb2f03fc7982700a6aeec248a554ad0e4857714eac1634c4a5a6",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1781,
+              "best_bound": 1781.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1781,
+              "best_bound": 1781.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 5135,
+              "best_bound": 5135.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 25333,
+              "best_bound": 25333.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 230000,
+              "best_bound": 230000.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 328,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N05",
+            "N06"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1900,
+            "unmet_visits": 698,
+            "covered_visits": 1900,
+            "visit_minutes": 22076,
+            "served_rate_pct": 73.13317936874519,
+            "unmet_rate_pct": 26.86682063125481,
+            "coverage_pct": 73.13317936874519,
+            "mean_assigned_travel_minutes": 11.618947368421052,
+            "worst_cluster_id": "C03",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 308000,
+            "budget_pkr": 450000,
+            "budget_utilization_pct": 68.44444444444444
+          },
+          "audit_passed": true,
+          "audit_result_hash": "bee5a9a7b56f9648ebd0ecb4c23ed2c0ed1df4c738a839e91042cde1c19693ef",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1900,
+              "best_bound": 1900.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1900,
+              "best_bound": 1900.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 22076,
+              "best_bound": 22076.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 308000,
+              "best_bound": 308000.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 461,
+          "served_visits": 461,
+          "unmet_visits": -461,
+          "coverage_pp": 17.744418783679755,
+          "served_rate_pp": 17.744418783679755,
+          "unmet_rate_pp": -17.744418783679752,
+          "worst_cluster_coverage_pp": 51.351351351351354,
+          "equity_gap_pp": -51.351351351351354,
+          "mean_assigned_travel_minutes": 3.9846375036156054,
+          "cost_pkr": 230000,
+          "additional_cost_per_added_covered_visit": 498.91540130151844
+        },
+        "optimized": {
+          "covered_visits": 580,
+          "served_visits": 580,
+          "unmet_visits": -580,
+          "coverage_pp": 22.32486528098537,
+          "served_rate_pp": 22.32486528098537,
+          "unmet_rate_pp": -22.32486528098537,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 1.379553429027112,
+          "cost_pkr": 308000,
+          "additional_cost_per_added_covered_visit": 531.0344827586207
+        }
+      }
+    },
+    {
+      "case_id": "bajaur-equity-20",
+      "dataset": {
+        "id": "demo-bajaur-v1",
+        "sha256": "b63e863318fdf35bafadc46b633011a9bb06b6f1df62dd3dd5c5d34ba54b7871",
+        "is_synthetic": true,
+        "communities": 24,
+        "existing_sites": 5,
+        "candidate_sites": 8,
+        "nodes": 24,
+        "edges": 38
+      },
+      "plan": {
+        "dataset_version_id": "demo-bajaur-v1",
+        "budget_pkr": 300000,
+        "max_new_units": 2,
+        "threshold_minutes": 45,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 20,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "15d926c46782d6ed0a851d18f043c5010b1c75b6259b09421006cd28341b4c33",
+      "observations": {
+        "baseline": {
+          "status": "NO_SOLUTION",
+          "solver_status": "INFEASIBLE",
+          "runtime_ms": 16,
+          "warnings": [
+            "The baseline is infeasible under the selected policy. Review the equity floor, threshold, capacity and budget assumptions."
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 328,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N01",
+            "N07"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1781,
+            "unmet_visits": 817,
+            "covered_visits": 1781,
+            "visit_minutes": 25333,
+            "served_rate_pct": 68.55273287143957,
+            "unmet_rate_pct": 31.44726712856043,
+            "coverage_pct": 68.55273287143957,
+            "mean_assigned_travel_minutes": 14.224031443009546,
+            "worst_cluster_id": "C12",
+            "worst_cluster_coverage_pct": 51.351351351351354,
+            "equity_gap_pp": 48.648648648648646,
+            "cost_pkr": 230000,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 76.66666666666667
+          },
+          "audit_passed": true,
+          "audit_result_hash": "768a365714d1bae175a934be9a89d617d6fc6c29758c2257763b9b1a55b57e1f",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1781,
+              "best_bound": 1781.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1781,
+              "best_bound": 1781.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 5135,
+              "best_bound": 5135.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 25333,
+              "best_bound": 25333.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 230000,
+              "best_bound": 230000.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 1078,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N01",
+            "N06"
+          ],
+          "metrics": {
+            "total_demand": 2598,
+            "served_visits": 1853,
+            "unmet_visits": 745,
+            "covered_visits": 1853,
+            "visit_minutes": 32161,
+            "served_rate_pct": 71.32409545804465,
+            "unmet_rate_pct": 28.67590454195535,
+            "coverage_pct": 71.32409545804465,
+            "mean_assigned_travel_minutes": 17.356179168915272,
+            "worst_cluster_id": "C17",
+            "worst_cluster_coverage_pct": 70.88607594936708,
+            "equity_gap_pp": 1.2293086660175268,
+            "cost_pkr": 267000,
+            "budget_pkr": 300000,
+            "budget_utilization_pct": 89.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "c735066f5da478d1e38eaa1d6252b3a6b0d74f20e8be8e53a68c8088c84afdc0",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1853,
+              "best_bound": 1853.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 1853,
+              "best_bound": 1853.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 7088,
+              "best_bound": 7088.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 32161,
+              "best_bound": 32161.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 267000,
+              "best_bound": 267000.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {}
+    },
+    {
+      "case_id": "disconnected",
+      "dataset": {
+        "id": "fixture-disconnected-v1",
+        "sha256": "761c98cb4bf533f1e520c5b9fa5b8a209665c1223fe47e9ee519dd5bfa3c1f28",
+        "is_synthetic": true,
+        "communities": 2,
+        "existing_sites": 1,
+        "candidate_sites": 0,
+        "nodes": 2,
+        "edges": 0
+      },
+      "plan": {
+        "dataset_version_id": "fixture-disconnected-v1",
+        "budget_pkr": 100,
+        "max_new_units": 0,
+        "threshold_minutes": 30,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "001ff5cca4646a43ce54d6eed7d574909a980d325551f3071f2f77c73da1ef31",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 16,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 100,
+            "served_visits": 60,
+            "unmet_visits": 40,
+            "covered_visits": 60,
+            "visit_minutes": 0,
+            "served_rate_pct": 60.0,
+            "unmet_rate_pct": 40.0,
+            "coverage_pct": 60.0,
+            "mean_assigned_travel_minutes": 0.0,
+            "worst_cluster_id": "C02",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 100,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "8ccee06b6598937f2dcff44b4eb928f64583a5ca0ed9a85161d9fed10dcae98e",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 60,
+              "best_bound": 60.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 60,
+              "best_bound": 60.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 16,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 100,
+            "served_visits": 60,
+            "unmet_visits": 40,
+            "covered_visits": 60,
+            "visit_minutes": 0,
+            "served_rate_pct": 60.0,
+            "unmet_rate_pct": 40.0,
+            "coverage_pct": 60.0,
+            "mean_assigned_travel_minutes": 0.0,
+            "worst_cluster_id": "C02",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 100,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "8ccee06b6598937f2dcff44b4eb928f64583a5ca0ed9a85161d9fed10dcae98e",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 60,
+              "best_bound": 60.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 60,
+              "best_bound": 60.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 15,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 100,
+            "served_visits": 60,
+            "unmet_visits": 40,
+            "covered_visits": 60,
+            "visit_minutes": 0,
+            "served_rate_pct": 60.0,
+            "unmet_rate_pct": 40.0,
+            "coverage_pct": 60.0,
+            "mean_assigned_travel_minutes": 0.0,
+            "worst_cluster_id": "C02",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 100.0,
+            "cost_pkr": 0,
+            "budget_pkr": 100,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "8ccee06b6598937f2dcff44b4eb928f64583a5ca0ed9a85161d9fed10dcae98e",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 60,
+              "best_bound": 60.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 60,
+              "best_bound": 60.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        },
+        "optimized": {
+          "covered_visits": 0,
+          "served_visits": 0,
+          "unmet_visits": 0,
+          "coverage_pp": 0.0,
+          "served_rate_pp": 0.0,
+          "unmet_rate_pp": 0.0,
+          "worst_cluster_coverage_pp": 0.0,
+          "equity_gap_pp": 0.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 0,
+          "additional_cost_per_added_covered_visit": null
+        }
+      }
+    },
+    {
+      "case_id": "saturated",
+      "dataset": {
+        "id": "fixture-saturated-v1",
+        "sha256": "c84c52184a666867c2a97536d63c9209010714055f2e8b893e6ef1c77d6cb4af",
+        "is_synthetic": true,
+        "communities": 2,
+        "existing_sites": 1,
+        "candidate_sites": 1,
+        "nodes": 4,
+        "edges": 4
+      },
+      "plan": {
+        "dataset_version_id": "fixture-saturated-v1",
+        "budget_pkr": 100,
+        "max_new_units": 1,
+        "threshold_minutes": 30,
+        "demand_multiplier_pct": 100,
+        "equity_min_pct": 0,
+        "policy": "coverage_first",
+        "seed": 2026
+      },
+      "plan_hash": "593b6ed2814f2eb2d379f6e400ba5a18be637b02eaf430e52b03b5367be0c44a",
+      "observations": {
+        "baseline": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 31,
+          "warnings": [],
+          "selected_candidate_ids": [],
+          "metrics": {
+            "total_demand": 100,
+            "served_visits": 45,
+            "unmet_visits": 55,
+            "covered_visits": 45,
+            "visit_minutes": 450,
+            "served_rate_pct": 45.0,
+            "unmet_rate_pct": 55.0,
+            "coverage_pct": 45.0,
+            "mean_assigned_travel_minutes": 10.0,
+            "worst_cluster_id": "B",
+            "worst_cluster_coverage_pct": 0.0,
+            "equity_gap_pp": 75.0,
+            "cost_pkr": 0,
+            "budget_pkr": 100,
+            "budget_utilization_pct": 0.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "7f95f32ed45bcf7c935ab026c0779fe0f25a8d74fa41385d2fc3e1b369a88c11",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 45,
+              "best_bound": 45.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 45,
+              "best_bound": 45.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": -0.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 450,
+              "best_bound": 450.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 0,
+              "best_bound": 0.0
+            }
+          ]
+        },
+        "greedy": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 16,
+          "warnings": [
+            "Greedy site selection is a heuristic. Solver status refers to assignments for those sites."
+          ],
+          "selected_candidate_ids": [
+            "N"
+          ],
+          "metrics": {
+            "total_demand": 100,
+            "served_visits": 65,
+            "unmet_visits": 35,
+            "covered_visits": 65,
+            "visit_minutes": 650,
+            "served_rate_pct": 65.0,
+            "unmet_rate_pct": 35.0,
+            "coverage_pct": 65.0,
+            "mean_assigned_travel_minutes": 10.0,
+            "worst_cluster_id": "B",
+            "worst_cluster_coverage_pct": 50.0,
+            "equity_gap_pp": 25.0,
+            "cost_pkr": 100,
+            "budget_pkr": 100,
+            "budget_utilization_pct": 100.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "41e678681effbb1b17c07547d4d2402af64bf4258306d6c6a3a8d841648af485",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 65,
+              "best_bound": 65.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 65,
+              "best_bound": 65.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 5000,
+              "best_bound": 5000.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 650,
+              "best_bound": 650.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 100,
+              "best_bound": 100.0
+            }
+          ]
+        },
+        "optimized": {
+          "status": "COMPLETED",
+          "solver_status": "OPTIMAL",
+          "runtime_ms": 31,
+          "warnings": [],
+          "selected_candidate_ids": [
+            "N"
+          ],
+          "metrics": {
+            "total_demand": 100,
+            "served_visits": 65,
+            "unmet_visits": 35,
+            "covered_visits": 65,
+            "visit_minutes": 650,
+            "served_rate_pct": 65.0,
+            "unmet_rate_pct": 35.0,
+            "coverage_pct": 65.0,
+            "mean_assigned_travel_minutes": 10.0,
+            "worst_cluster_id": "B",
+            "worst_cluster_coverage_pct": 50.0,
+            "equity_gap_pp": 25.0,
+            "cost_pkr": 100,
+            "budget_pkr": 100,
+            "budget_utilization_pct": 100.0
+          },
+          "audit_passed": true,
+          "audit_result_hash": "41e678681effbb1b17c07547d4d2402af64bf4258306d6c6a3a8d841648af485",
+          "objective_stages": [
+            {
+              "objective": "covered_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 65,
+              "best_bound": 65.0
+            },
+            {
+              "objective": "served_visits",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 65,
+              "best_bound": 65.0
+            },
+            {
+              "objective": "equity_basis_points",
+              "direction": "maximize",
+              "status": "OPTIMAL",
+              "value": 5000,
+              "best_bound": 5000.0
+            },
+            {
+              "objective": "assigned_travel_visit_minutes",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 650,
+              "best_bound": 650.0
+            },
+            {
+              "objective": "cost_pkr",
+              "direction": "minimize",
+              "status": "OPTIMAL",
+              "value": 100,
+              "best_bound": 100.0
+            }
+          ]
+        }
+      },
+      "deltas_from_baseline": {
+        "greedy": {
+          "covered_visits": 20,
+          "served_visits": 20,
+          "unmet_visits": -20,
+          "coverage_pp": 20.0,
+          "served_rate_pp": 20.0,
+          "unmet_rate_pp": -20.0,
+          "worst_cluster_coverage_pp": 50.0,
+          "equity_gap_pp": -50.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 100,
+          "additional_cost_per_added_covered_visit": 5.0
+        },
+        "optimized": {
+          "covered_visits": 20,
+          "served_visits": 20,
+          "unmet_visits": -20,
+          "coverage_pp": 20.0,
+          "served_rate_pp": 20.0,
+          "unmet_rate_pp": -20.0,
+          "worst_cluster_coverage_pp": 50.0,
+          "equity_gap_pp": -50.0,
+          "mean_assigned_travel_minutes": 0.0,
+          "cost_pkr": 100,
+          "additional_cost_per_added_covered_visit": 5.0
+        }
+      }
+    }
+  ],
+  "overall_elapsed_ms": 15956
+}

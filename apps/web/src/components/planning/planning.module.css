@@ -1,0 +1,165 @@
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(16rem, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.content {
+  padding: clamp(1rem, 3vw, 1.6rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.content h2, .content p {
+  margin: 0;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1rem;
+}
+
+.field {
+  display: grid;
+  align-content: start;
+  gap: .35rem;
+  min-width: 0;
+}
+
+.field label {
+  font-weight: 650;
+}
+
+.field input, .field select, .field textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  box-sizing: border-box;
+  border-radius: .55rem;
+  border: 1px solid #acbbc0;
+  background: white;
+  color: #172f39;
+  padding: .55rem .75rem;
+  font: inherit;
+}
+
+.field input[aria-invalid=true], .field select[aria-invalid=true] {
+  border-color: #a42728;
+}
+
+.field small {
+  font-size: .78rem;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.assistant {
+  display: grid;
+  gap: .65rem;
+  min-width: 0;
+}
+
+section.assistant {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.error {
+  color: #a42728;
+  font-weight: 550;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .65rem;
+}
+
+.description {
+  display: grid;
+  margin: 0;
+}
+
+.description div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: .75rem;
+  border-bottom: 1px solid #dce6e6;
+  padding: .65rem 0;
+}
+
+.description div:last-child {
+  border-bottom: 0;
+}
+
+.description dt {
+  color: #49606a;
+}
+
+.description dd {
+  margin: 0;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.hash {
+  overflow-wrap: anywhere;
+  font: .8rem ui-monospace, monospace;
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .7rem;
+}
+
+.steps li {
+  border: 1px solid #dce6e6;
+  padding: .65rem .8rem;
+  border-radius: .6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .55rem;
+}
+
+.steps li[aria-current=step] {
+  border-color: #288580;
+  background: #edf8f6;
+}
+
+.completed {
+  color: #086456;
+  font-weight: 680;
+}
+
+.status {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.stage {
+  font-weight: 650;
+}
+
+@media (max-width: 800px) {
+  .columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .fieldGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

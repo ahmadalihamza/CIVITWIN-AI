@@ -8,9 +8,9 @@ from app.schemas.dataset import MAX_COST_PKR, Contract, Dataset, Identifier
 DEFAULT_DATASET_ID = "demo-bajaur-v1"
 
 
-def scaled_visits(visits: int, multiplier_pct: int) -> int:
+def scaled_visits(visits: int, multiplier_pct: int, stress_multiplier_pct: int = 100) -> int:
     """Round nonnegative scaled weekly visits half up, using integer arithmetic."""
-    return (visits * multiplier_pct + 50) // 100
+    return (visits * multiplier_pct * stress_multiplier_pct + 5_000) // 10_000
 
 
 class PlanSpec(Contract):

@@ -1,6 +1,6 @@
 from typing import Annotated, Literal
 
-from pydantic import StringConstraints
+from pydantic import Field, StringConstraints
 
 from app.schemas.dataset import Contract, Digest, Identifier
 
@@ -12,9 +12,14 @@ class Confirmation(Contract):
 
 
 class RunRequest(Contract):
-    kind: Literal["baseline", "optimized"]
+    kind: Literal["baseline", "optimized", "greedy"]
 
 
 class ComparisonRequest(Contract):
     baseline_run_id: Identifier
     alternative_run_id: Identifier
+
+
+class StressRequest(ComparisonRequest):
+    seed: Annotated[int, Field(ge=0, le=2_147_483_647)]
+    case_count: Annotated[int, Field(ge=1, le=20)] = 20

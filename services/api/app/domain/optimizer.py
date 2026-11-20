@@ -214,6 +214,7 @@ def solve(
     timeout_seconds: float = 10,
     fixed_candidates: tuple[str, ...] | None = None,
     travel_multiplier_pct: int = 100,
+    stress_demand_multiplier_pct: int = 100,
     cancelled: Stop | None = None,
     on_stage: Progress | None = None,
 ) -> SolveOutcome:
@@ -224,6 +225,13 @@ def solve(
         raise ValueError("The solve time limit must be positive and finite.")
     if type(travel_multiplier_pct) is not int or not 1 <= travel_multiplier_pct <= 300:
         raise ValueError("The travel multiplier must be an integer percentage between 1 and 300.")
+    if (
+        type(stress_demand_multiplier_pct) is not int
+        or not 80 <= stress_demand_multiplier_pct <= 130
+    ):
+        raise ValueError("The stress demand multiplier must be an integer from 80 to 130 percent.")
+    if stress_demand_multiplier_pct != 100 and kind != "baseline" and fixed_candidates is None:
+        raise ValueError("Stress demand changes require a fixed candidate selection.")
     if kind == "baseline":
         if fixed_candidates:
             raise ValueError("A baseline cannot activate candidate sites.")
@@ -248,9 +256,15 @@ def solve(
 
     deadline = start + timeout_seconds
     demand = {
-        row.id: scaled_visits(row.demand_visits_per_week, plan.demand_multiplier_pct)
+        row.id: scaled_visits(
+            row.demand_visits_per_week, plan.demand_multiplier_pct, stress_demand_multiplier_pct
+        )
         for row in sorted(dataset.communities, key=lambda item: item.id)
     }
+    if not any(demand.values()):
+        return stop(
+            "NO_SOLUTION", "ZERO_DEMAND", "The stress case has zero total demand after rounding."
+        )
     travel = scaled_travel(travel_matrix(dataset), travel_multiplier_pct)
     model = _build(dataset, plan, travel, demand, fixed_candidates)
     if diagnostic := model.program.validate():

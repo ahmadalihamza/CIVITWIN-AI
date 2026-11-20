@@ -2,6 +2,7 @@ import json
 import logging
 from collections.abc import AsyncIterator, Sequence
 from contextlib import asynccontextmanager
+from threading import BoundedSemaphore
 from typing import Annotated, Any, Literal
 from uuid import uuid4
 
@@ -15,8 +16,12 @@ from sqlalchemy.exc import IntegrityError
 from starlette.exceptions import HTTPException
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
+from app.ai.evidence import explain
+from app.ai.narration import narrate
+from app.ai.parser import ParseRequest, ParseResponse, parse_plan
+from app.ai.provider import HttpJsonProvider
 from app.config import Settings
-from app.db.models import DatasetVersion, Run, Scenario
+from app.db.models import DatasetVersion, Run, Scenario, StressRun
 from app.db.store import (
     DatasetConflict,
     Store,
@@ -32,7 +37,7 @@ from app.domain.optimizer import SOLVER_VERSION
 from app.domain.results import Metrics
 from app.domain.travel import travel_matrix
 from app.errors import ApiError
-from app.schemas.api import ComparisonRequest, Confirmation, JobKey, RunRequest
+from app.schemas.api import ComparisonRequest, Confirmation, JobKey, RunRequest, StressRequest
 from app.schemas.plan import PlanSpec
 from app.workflows.export import export_csv, export_document
 from app.workflows.jobs import JobError, JobManager
@@ -125,8 +130,11 @@ def ready(request: Request) -> dict[str, Any]:
         dataset_id = session.scalar(select(DatasetVersion.id).limit(1))
     if dataset_id is None:
         raise ApiError(503, "NO_DATASET", "Publish an approved aggregate dataset to begin.")
-    settings: Settings = request.app.state.settings
-    return {"status": "ready", "solver_version": SOLVER_VERSION, "ai_enabled": settings.ai_enabled}
+    return {
+        "status": "ready",
+        "solver_version": SOLVER_VERSION,
+        "ai_enabled": request.app.state.provider is not None,
+    }
 
 
 @router.get("/datasets")
@@ -213,6 +221,22 @@ def create_scenario(plan: PlanSpec, request: Request) -> dict[str, Any]:
         session.add(scenario)
         append_event(session, "scenario", scenario.id, "VALIDATED", {"plan_hash": plan.plan_hash})
         return _scenario_view(scenario)
+
+
+@router.post("/plans/parse")
+def parse_draft(body: ParseRequest, request: Request) -> ParseResponse:
+    with _store(request).sessions() as session:
+        version = session.get(DatasetVersion, body.dataset_version_id)
+        if version is None:
+            raise ApiError(422, "UNKNOWN_DATASET", "Select a published dataset version.")
+        dataset = load_version(version)
+    slot: BoundedSemaphore = request.app.state.provider_slot
+    if not slot.acquire(blocking=False):
+        raise ApiError(429, "AI_BUSY", "The optional provider is handling another request.")
+    try:
+        return parse_plan(body, dataset, request.app.state.provider)
+    finally:
+        slot.release()
 
 
 @router.get("/scenarios/{scenario_id}")
@@ -319,6 +343,67 @@ def download(run_id: str, request: Request, format: Literal["json", "csv"] = "js
     return JSONResponse(document, headers=headers)
 
 
+@router.get("/runs/{run_id}/explanation")
+def explanation(run_id: str, request: Request) -> dict[str, Any]:
+    return _explain(run_id, request, use_provider=False)
+
+
+@router.post("/runs/{run_id}/explanation")
+def provider_explanation(run_id: str, request: Request) -> dict[str, Any]:
+    return _explain(run_id, request, use_provider=True)
+
+
+def _explain(run_id: str, request: Request, *, use_provider: bool) -> dict[str, Any]:
+    with _store(request).sessions() as session:
+        result = _published(session.get(Run, run_id))
+        scenario = session.get(Scenario, result["scenario_id"])
+        assert scenario is not None
+        dataset = session.get(DatasetVersion, scenario.dataset_id)
+        assert dataset is not None
+        generated = explain(result, scenario.plan_json, dataset.manifest_json)
+    slot: BoundedSemaphore = request.app.state.provider_slot
+    if use_provider and slot.acquire(blocking=False):
+        try:
+            generated = narrate(generated, request.app.state.provider)
+        finally:
+            slot.release()
+    return generated.model_dump(mode="json")
+
+
+@router.post("/stress-runs", status_code=202)
+def submit_stress(
+    body: StressRequest,
+    request: Request,
+    idempotency_key: Annotated[JobKey | None, Header()] = None,
+) -> dict[str, str]:
+    return {"stress_run_id": _jobs(request).submit_stress(body, idempotency_key)}
+
+
+@router.get("/stress-runs/{run_id}")
+def get_stress(run_id: str, request: Request) -> dict[str, Any]:
+    with _store(request).sessions() as session:
+        row = session.get(StressRun, run_id)
+        if row is None:
+            raise ApiError(404, "STRESS_RUN_NOT_FOUND", "The stress run was not found.")
+        view = {
+            "stress_run_id": row.id,
+            "baseline_run_id": row.baseline_run_id,
+            "alternative_run_id": row.alternative_run_id,
+            "seed": row.seed,
+            "case_count": row.case_count,
+            "status": row.status,
+            "progress_stage": row.progress_stage,
+            "runtime_ms": row.runtime_ms,
+            "created_at": row.created_at,
+            "updated_at": row.updated_at,
+        }
+        if row.results_json is not None:
+            view["results"] = row.results_json
+        if row.error_json:
+            view["error"] = row.error_json
+        return view
+
+
 def create_app(settings: Settings | None = None) -> FastAPI:
     configuration = settings or Settings.from_env()
 
@@ -327,7 +412,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         store = Store(configuration)
         try:
             store.prepare()
-            jobs = JobManager(store, configuration.solver_timeout_seconds)
+            jobs = JobManager(
+                store, configuration.solver_timeout_seconds, configuration.stress_timeout_seconds
+            )
             application.state.store = store
             application.state.jobs = jobs
             try:
@@ -339,6 +426,17 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     application = FastAPI(title="CIVITWIN AI", version="1.0", lifespan=lifespan)
     application.state.settings = configuration
+    application.state.provider_slot = BoundedSemaphore(1)
+    application.state.provider = None
+    if configuration.provider_configured:
+        try:
+            application.state.provider = HttpJsonProvider(
+                configuration.llm_endpoint, configuration.llm_model, configuration.llm_api_key
+            )
+        except ValueError:
+            log.warning(
+                "Optional provider configuration is invalid. Offline planning remains available."
+            )
     application.add_middleware(
         CORSMiddleware,
         allow_origins=[configuration.allowed_origin],
@@ -355,7 +453,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     async def request_id(request: Request, call_next: Any) -> Response:
         request.state.request_id = uuid4().hex
         try:
-            response = await call_next(request)
+            origin = request.headers.get("origin")
+            trusted_origins = {configuration.allowed_origin}
+            if not configuration.web_origin:
+                trusted_origins.add(f"http://127.0.0.1:{configuration.web_port}")
+            if request.method == "POST" and origin is not None and origin not in trusted_origins:
+                response = _fail(
+                    request, 403, "UNTRUSTED_ORIGIN", "Use the local planning workspace.", []
+                )
+            else:
+                response = await call_next(request)
         except Exception as exc:
             log.error(
                 "request_failed request_id=%s error_type=%s",

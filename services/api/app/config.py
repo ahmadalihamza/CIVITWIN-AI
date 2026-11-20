@@ -32,6 +32,7 @@ class Settings:
     demo_mode: bool = True
     ai_enabled: bool = False
     llm_model: str = ""
+    llm_endpoint: str = ""
     llm_api_key: str = field(default="", repr=False)
     solver_timeout_seconds: int = 10
     stress_timeout_seconds: int = 60
@@ -41,6 +42,10 @@ class Settings:
     @property
     def allowed_origin(self) -> str:
         return self.web_origin or f"http://localhost:{self.web_port}"
+
+    @property
+    def provider_configured(self) -> bool:
+        return self.ai_enabled and bool(self.llm_model.strip() and self.llm_endpoint.strip())
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -53,6 +58,7 @@ class Settings:
             demo_mode=_boolean("DEMO_MODE", True),
             ai_enabled=_boolean("AI_ENABLED", False),
             llm_model=environ.get("LLM_MODEL", ""),
+            llm_endpoint=environ.get("LLM_ENDPOINT", ""),
             llm_api_key=environ.get("LLM_API_KEY", ""),
             solver_timeout_seconds=_integer("SOLVER_TIMEOUT_SECONDS", 10, maximum=300),
             stress_timeout_seconds=_integer("STRESS_TIMEOUT_SECONDS", 60, maximum=1_800),
