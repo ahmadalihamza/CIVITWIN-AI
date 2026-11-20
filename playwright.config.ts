@@ -38,7 +38,7 @@ export default defineConfig({
     {
       command: "npm run dev --workspace @civitwin/web -- --port " + webPort,
       url: webURL,
-      timeout: 90_000,
+      timeout: 240_000,
       reuseExistingServer: false,
       env: {
         API_INTERNAL_URL: apiURL,
