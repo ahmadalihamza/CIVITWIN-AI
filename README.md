@@ -59,7 +59,7 @@ The API applies the Alembic migration and publishes the synthetic seed idempoten
 
 For a demo reset, stop both services and run `uv run --locked python scripts/reset_demo.py`. Review the absolute database path and enter `RESET DEMO`. The command prints the filename of a consistent backup and republishes the synthetic seed. To restore, stop the services, retain the current database separately, and copy the chosen backup into a **fresh filename** in the data directory. Set `DATABASE_URL` to that file and restart using the matching code revision and seed manifest. Confirm that saved reports and plan hashes match before continuing. This also preserves the backup for another restore.
 
-Run the isolated browser tests with `npx playwright install chromium` followed by `npm run e2e`. On this Windows workspace, `uv run --locked pytest --basetemp .pytest_cache/local-tests` uses a writable test database directory.
+Run the isolated browser tests with `npx playwright install chromium` followed by `npm run e2e`. If Windows restricts the system temp directory, run `New-Item -ItemType Directory -Force .pytest_cache` before `uv run --locked pytest --basetemp .pytest_cache/local-tests`.
 
 ## Docker Compose
 
