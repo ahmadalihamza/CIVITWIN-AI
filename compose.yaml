@@ -1,0 +1,40 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile
+      target: api
+    ports:
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:3000:3000"
+    environment:
+      DATABASE_URL: sqlite:////var/lib/civitwin/civitwin.db
+      DEMO_MODE: "true"
+      AI_ENABLED: "false"
+    volumes:
+      - history:/var/lib/civitwin
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; assert urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=2).status == 200"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+  web:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile
+      target: web
+    network_mode: service:api
+    depends_on:
+      api:
+        condition: service_healthy
+  qa:
+    profiles: ["qa"]
+    build:
+      context: .
+      dockerfile: infra/Dockerfile
+      target: qa
+    volumes:
+      - ./test-results:/app/test-results
+    command: ["python", "scripts/smoke.py"]
+volumes:
+  history:

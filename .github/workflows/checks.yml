@@ -19,7 +19,9 @@ jobs:
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
       - run: uv run --locked mypy
-      - run: uv run --locked pytest
+      - run: uv run --locked coverage run -m pytest
+      - run: uv run --locked coverage report --fail-under=80
+      - run: uv run --locked python scripts/smoke.py
   web:
     runs-on: ubuntu-latest
     env:

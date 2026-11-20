@@ -1,0 +1,17 @@
+.git
+.env
+.venv
+.*-cache
+.*_cache
+.playwright-browsers
+**/node_modules
+**/.next*
+**/__pycache__
+**/next-env.d.ts
+**/*.tsbuildinfo
+test-results
+playwright-report
+data/*.db*
+data/*.bak*
+.coverage
+*.log

@@ -3,6 +3,7 @@ import logging
 from collections.abc import AsyncIterator, Sequence
 from contextlib import asynccontextmanager
 from threading import BoundedSemaphore
+from time import monotonic
 from typing import Annotated, Any, Literal
 from uuid import uuid4
 
@@ -451,6 +452,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @application.middleware("http")
     async def request_id(request: Request, call_next: Any) -> Response:
+        started = monotonic()
         request.state.request_id = uuid4().hex
         try:
             origin = request.headers.get("origin")
@@ -473,6 +475,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 request, 500, "INTERNAL_ERROR", "The request could not be completed.", []
             )
         response.headers["X-Request-ID"] = request.state.request_id
+        logging.getLogger("uvicorn.error").info(
+            "request_id=%s stage=http method=%s status=%d elapsed_ms=%d",
+            request.state.request_id,
+            request.method,
+            response.status_code,
+            round(1000 * (monotonic() - started)),
+        )
         return response
 
     @application.exception_handler(ApiError)
