@@ -44,7 +44,7 @@ def main():
             cwd=ROOT,
         )
         processes.append(api)
-        deadline = monotonic() + 45
+        deadline = monotonic() + 120
         with httpx.Client(trust_env=False, timeout=2) as client:
             while monotonic() < deadline:
                 if api.poll() is not None:
@@ -54,7 +54,7 @@ def main():
                         break
                 sleep(0.4)
             else:
-                raise SystemExit("The API did not become ready within 45 seconds.")
+                raise SystemExit("The API did not become ready within 120 seconds.")
         env = {**os.environ, "API_INTERNAL_URL": api_url, "NEXT_TELEMETRY_DISABLED": "1"}
         processes.append(
             subprocess.Popen(

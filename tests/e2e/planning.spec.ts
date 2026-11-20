@@ -219,10 +219,10 @@ test("data explorer validates and publishes a signed synthetic version", async (
     name: "invalid.json", mimeType: "application/json", buffer: Buffer.from("{"),
   });
   await page.getByRole("button", { name: "Publish version" }).click();
-  await expect(page.getByRole("alert")).toContainText("valid UTF-8 JSON");
+  await expect(page.getByRole("alert").filter({ hasText: "valid UTF-8 JSON" })).toBeVisible();
   await bundle.setInputFiles("services/api/tests/fixtures/golden.json");
   await page.getByRole("button", { name: "Publish version" }).click();
-  await expect(page.getByRole("status")).toContainText("Published synthetic version");
+  await expect(page.getByRole("status").filter({ hasText: "Published synthetic version" })).toBeVisible();
   await expect(page.getByRole("table", { name: "Community demand per modeled week" })
     .getByRole("row")).toHaveCount(3);
 });
