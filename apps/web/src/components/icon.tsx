@@ -1,9 +1,10 @@
 import type { SVGProps } from "react";
 
 export type IconName = "overview" | "data" | "scenario" | "compare" | "activity" |
-  "pin" | "arrow" | "grid" | "site" | "clock" | "check" | "report" | "database";
+  "pin" | "arrow" | "grid" | "site" | "clock" | "check" | "report" | "database" | "studio";
 
 const paths: Record<IconName, string> = {
+  studio: "M4 20V9l7-5 9 5v11M4 9l7 5 9-5M11 14v6M8 17h.01M16 17h.01",
   overview: "M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z",
   data: "m12 3 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 16l9 5 9-5",
   scenario: "M4 6h16M4 12h16M4 18h16M8 3v6m8 0v6m-6 0v6",

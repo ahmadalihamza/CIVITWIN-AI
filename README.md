@@ -6,6 +6,12 @@ The [software requirements specification](docs/SRS.md) defines the workflow and 
 
 The [public GitHub Pages demo](https://ahmadalihamza.github.io/CIVITWIN-AI/) lets visitors compare recorded, independently audited synthetic scenarios. Use the local planner below to solve new scenarios and persist results. Pages serves the static files in `docs/` on `main`.
 
+## New MVP experience: Impact Studio
+
+Open **[Impact Studio](http://127.0.0.1:3000/studio)** for a guided, interactive competition demonstration. It offers three realistic planning missions (underserved access, demand surge, tighter budget), sliders for budget, new units, travel threshold and demand, and one-click execution of a **real baseline and optimized solve** through the existing backend. Audited results feed a zone-level equity lens, winners/losers view, and evidence-grounded explanations with links to saved comparison and reports.
+
+The page shows the previously recorded synthetic benchmark before you run a new plan, with a clear label that the preview is *not* generated from the current slider inputs. A running local API is required for new simulations. The feature does not claim autonomous AI agents, medical predictions, real-world Bajaur geography, or patient records. See [the Impact Studio MVP demo guide](docs/IMPACT_STUDIO.md).
+
 ## Quick start
 
 Install Python 3.11, uv and Node.js 22.12 or later. From the repository root in PowerShell run
