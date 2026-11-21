@@ -10,7 +10,7 @@ The workspace initially contained AGENTS.md and the complete SRS, both byte-iden
 | M3 Frontend | Passed locally | Guided baseline, solve, compare and export through a real browser |
 | M4 Robustness | Passed locally | Paired uncertainty, greedy benchmark, evidence and accessibility tests |
 | M5 Optional AI | Passed locally with provider fixtures | Reviewed typed drafts, evidence-controlled narration, failure and injection tests |
-| M6 Release | In progress | Clean setup, smoke, lint, tests, E2E, benchmark and demo handoff |
+| M6 Release | Passed on native Windows | Clean setup, smoke, lint, tests, E2E, benchmark, screenshots and demo handoff |
 
 ## Requirement checklist
 
@@ -45,7 +45,7 @@ The workspace initially contained AGENTS.md and the complete SRS, both byte-iden
 
 ## Acceptance test gates
 
-| Test | Gate | Planned assertion |
+| Test | Gate | Acceptance check |
 | --- | --- | --- |
 | T01 | M1 | Golden totals, costs, assignments and audit checks |
 | T02 | M1 | Zero budget and unit limits |
@@ -121,3 +121,22 @@ The workspace initially contained AGENTS.md and the complete SRS, both byte-iden
 - Implemented typed drafts, explicit form review, a server-only provider adapter, constrained claim selection and offline fallback in `services/api/app/ai/`, API configuration/routes, and the web planner and report. Added parser, evidence, integration and browser tests. The data explorer also supports validated local synthetic bundle imports.
 - `.venv/Scripts/python.exe -m pytest --basetemp .pytest_cache/m5-ai services/api/tests/unit/test_plan_parser.py services/api/tests/unit/test_evidence.py services/api/tests/integration/test_api.py -q --tb=short` passed 59 tests. Ruff, formatting, mypy, web lint, typecheck and Vitest passed. `npx playwright test tests/e2e/optional-ai.spec.ts` passed with a simulated provider draft and real scenario creation.
 - FR-11/14, NFR-05/09 and T10/T11 passed with controlled provider responses. The 20 labeled English parser fixtures cover 14 expected drafts and 6 expected refusals or clarifications. Live model accuracy and native-speaker review of Urdu/Pashto require separate evaluation.
+
+## M6 release verification
+
+- Added `scripts/dev.py`, `scripts/smoke.py`, `scripts/reset_demo.py`, a transactional recovery test, the Makefile targets, `compose.yaml`, `infra/Dockerfile`, `.dockerignore`, request timing logs, CI coverage/smoke checks, native/container setup and the [competition walkthrough](DEMO.md).
+- Fresh local clone on Windows, with empty Python and Node dependency directories: `uv sync --locked --offline --python 3.11` installed 43 packages and `npm ci --offline --no-audit --no-fund` installed 436 packages using previously populated local download caches.
+- `.venv/Scripts/python.exe -m coverage run -m pytest -q --tb=short` passed 111 tests in 27.79 seconds. `python -m coverage report --fail-under=80` reported 89% branch-inclusive domain coverage. A first attempt using a nested custom temp path failed to create the missing parent directory. The normal pytest invocation passed. The README explains how to create that directory for restricted Windows environments.
+- `python scripts/smoke.py` completed a native offline scenario, confirmed plan hashes, independently audited both allocations, checked the comparison and read JSON/CSV after reopening SQLite. The reset recovery test passed with an isolated database. It verified cancellation, republishing the seed and recovering the prior dataset from backup.
+- Docker Compose v5.8.0 accepted `--profile qa config --quiet`. Runtime verification on this host is unavailable: the Windows Docker Engine named pipe does not exist. The native workflow is the verified release path.
+- Ruff lint and format passed for 56 files, mypy passed for 30 application modules, and `python scripts/seed.py --check` reproduced the tracked seed and schemas. Web lint, TypeScript, Vitest (1 test) and the Next.js production compilation passed locally.
+- OSV-Scanner 2.7.1 initially found GHSA-g3hv-75wg-m249 affecting the development dependency minimatch 10.2.6. Updated the typescript-eslint dependency family to 8.73.0 using `npm update typescript-eslint --package-lock-only --ignore-scripts --no-audit --no-fund`. The offline rescan of 45 Python and 527 npm lockfile entries returned zero findings on November 20, 2026. Command: `osv-scanner scan source --offline --lockfile uv.lock --lockfile package-lock.json`. Advisory databases were downloaded locally. [OSV offline scanning](https://google.github.io/osv-scanner/usage/offline-mode/)
+- The [release benchmark](release-benchmark.json) records the fresh-checkout run of `python scripts/benchmark.py --output test-results/release-benchmark.json`. The default optimized solve took 765 ms. The 20-pair suite took 7,720 ms and all pairs completed. Across the 15 benchmark scenarios, all 43 published allocations passed independent verification. One zero-budget baseline timed out during this run and the 20% equity-floor baseline was infeasible. Both terminal states are retained in the benchmark.
+- The final npm lock installed 437 packages with `npm ci --offline --no-audit --no-fund`. Cold startup on this disk exceeded the original test web-server and native API readiness deadlines. The launcher now waits up to 120 seconds for API readiness and Playwright allows 240 seconds for the frontend to start. The native launcher served the overview and same-origin readiness endpoint at 127.0.0.1 with AI disabled.
+- Browser acceptance initially found a test locator that also matched Next.js’s route announcer. The assertion now matches the visible import error. Release review also added demand-weighted zone totals alongside community coverage and a check that the zone counts sum to the audited district counts. The [walkthrough and screenshots](DEMO.md) use the running application.
+
+### Remaining scope
+
+Release sign-off for the native Bajaur demonstration was recorded on November 21, 2026. The final clean-checkout sequence `npm run lint:web`, `npm run typecheck:web`, `npm run test:web`, `npm run e2e`, and `npm run build:web` exited successfully. All five Chromium tests passed in 2.6 minutes. The browser run exercised the offline solver-to-report workflow, zone reconciliation, stress outcomes, download, keyboard/mobile use, an infeasible scenario, reviewed optional AI drafts and synthetic import. The requirements tables and milestone logs above map this evidence to G1–G7, FR-01–14, NFR-01–10 and T01–T16.
+
+The native release covers the P0 workflow (FR-01 through FR-13). FR-14 has controlled provider and browser tests. Live model quality, Urdu/Pashto speaker review, FR-15 alternate objective policies and FR-16 multi-user access remain future work. The single-process job manager and synthetic local data are intended for the competition demonstration. Hosted CI and container execution still require their respective runtimes.

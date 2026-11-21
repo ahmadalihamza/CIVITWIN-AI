@@ -24,6 +24,18 @@ Start the native planner using the [setup instructions](../README.md). Keep AI d
 | Mean assigned travel | 10.24 min | 17.36 min |
 | Additional cost | PKR 0 | PKR 267,000 |
 
-The alternative covered 533 additional visits per week and mean assigned travel increased by 7.12 minutes. In the recorded 20-case sensitivity analysis, alternative coverage ranged from 55.28% to 89.34%. The median was 65.84%. All 20 pairs completed. These figures describe sensitivity to the specified synthetic perturbations. [Benchmark inputs, objective stages and results](benchmark-results.json)
+The alternative covered 533 additional visits per week and mean assigned travel increased by 7.12 minutes. The zone table shows who gained and who lost coverage in this modeled allocation. Ridge rose from 0 to 634 covered visits out of 891, while Valley fell from 741 to 568 out of 794. [Audited run comparison](screenshots/comparison.png)
+
+In the recorded 20-case sensitivity analysis, alternative coverage ranged from 55.28% to 89.34%. The median was 65.84%. All 20 pairs completed. These figures describe sensitivity to the specified synthetic perturbations. [Benchmark inputs, objective stages and results](benchmark-results.json)
 
 For an infeasibility demonstration, create a separate scenario with a one-minute threshold and a 100% equity floor. Inspect the baseline diagnostic. The run history retains its solver status.
+
+## Screenshots from the running demo
+
+| View | Evidence |
+| --- | --- |
+| [Planning overview](screenshots/overview.png) | Seed counts, schematic network and dataset manifest |
+| [Mobile scenario builder](screenshots/scenario-mobile.png) | Planning controls at 375 pixels wide |
+| [Allocation comparison](screenshots/comparison.png) | Modeled baseline and alternative on the same weekly demand |
+| [Stress Lab](screenshots/stress.png) | A three-pair browser run with per-case audit states |
+| [Printable report](screenshots/report.png) | Solver outcome, assumptions, audit and export controls |
