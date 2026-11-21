@@ -1,14 +1,26 @@
 "use client";
 
 import { useId, useState } from "react";
-import type { Dataset } from "@/lib/types";
+import type { Dataset, Result } from "@/lib/types";
 import { formatNumber } from "@/lib/api";
+import { percent } from "@/components/results/result-details";
 
-export function Network({ dataset }: { dataset: Dataset }) {
+type CoverageView = "baseline" | "optimized" | "change";
+const coverageViews: Record<CoverageView, string> = {
+  baseline: "Existing sites",
+  optimized: "Optimized plan",
+  change: "Change in covered visits",
+};
+
+export function Network({ dataset, comparison }: {
+  dataset: Dataset;
+  comparison?: { baseline: Result; optimized: Result };
+}) {
   const patternId = useId();
   const maskId = useId();
   const [layer, setLayer] = useState<"all" | "existing" | "candidate">("all");
   const [selected, setSelected] = useState<string | null>(null);
+  const [view, setView] = useState<CoverageView>("change");
   const maxX = Math.max(...dataset.nodes.map((node) => node.display_x));
   const maxY = Math.max(...dataset.nodes.map((node) => node.display_y));
   const minX = Math.min(...dataset.nodes.map((node) => node.display_x));
@@ -21,11 +33,20 @@ export function Network({ dataset }: { dataset: Dataset }) {
   const selectedCommunity = dataset.communities.find((row) => row.id === selected);
   const selectedSite = dataset.sites.find((row) => row.id === selected);
   const shownSites = dataset.sites.filter((site) => layer === "all" || site.type === layer);
+  const baseline = new Map(comparison?.baseline.metrics.clusters.map((row) => [row.community_id, row]));
+  const optimized = new Map(comparison?.optimized.metrics.clusters.map((row) => [row.community_id, row]));
+  const activeCandidates = new Set(view === "baseline" ? [] : comparison?.optimized.selected_candidate_ids);
+  const selectedBefore = baseline.get(selected ?? "");
+  const selectedAfter = optimized.get(selected ?? "");
   const groupX = new Map<string, number>();
   const boundary = "M41 86 83 47 154 29 257 43 339 19 441 32 477 51 604 33 675 72 687 131 663 199 696 253 674 323 631 353 526 349 466 377 373 353 273 375 222 350 114 354 50 312 55 235 24 182Z";
 
   return <section className="panel map-panel" aria-label="Synthetic service network">
-    <div className="section-head"><div><h2>Service network</h2><p className="muted">Schematic positions and modeled travel links</p></div>
+    <div className="section-head"><div><h2>{comparison ? "Coverage on the service network" : "Service network"}</h2><p className="muted">Schematic positions and modeled travel links</p></div>
+      {comparison && <label className="layer-control">Coverage view <select value={view}
+        onChange={(event) => setView(event.target.value as CoverageView)}>
+        {Object.entries(coverageViews).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
+      </select></label>}
       <label className="layer-control">Sites <select value={layer} onChange={(event) =>
         setLayer(event.target.value as typeof layer)}><option value="all">All sites</option>
         <option value="existing">Existing</option><option value="candidate">Candidates</option>
@@ -52,11 +73,28 @@ export function Network({ dataset }: { dataset: Dataset }) {
         const row = communities.get(node.id), point = points.get(node.id);
         if (!row || !point) return null;
         const active = selected === row.id;
-        return <g key={row.id} role="button" tabIndex={0} aria-label={row.label}
+        const before = baseline.get(row.id), after = optimized.get(row.id);
+        let fill = "#316b60";
+        let marker = row.id;
+        let tooltip = row.label;
+        if (before && after) {
+          const delta = after.covered_visits - before.covered_visits;
+          const coverage = (view === "baseline" ? before : after).coverage_pct;
+          if (view === "change") {
+            fill = delta > 0 ? "#087357" : delta < 0 ? "#9f3f1e" : "#52666a";
+            marker = delta > 0 ? "+" : delta < 0 ? "−" : "=";
+          } else {
+            fill = coverage === 0 ? "#9f3f1e" : coverage !== null && coverage < 50 ? "#805919" : "#316b60";
+            marker = coverage === null ? "—" : Math.round(coverage) + "%";
+          }
+          tooltip += " · Existing sites " + percent(before.coverage_pct) + " · Optimized " + percent(after.coverage_pct);
+        }
+        return <g key={row.id} role="button" tabIndex={0} aria-label={tooltip}
           aria-pressed={active} className="map-target" onClick={() => setSelected(row.id)}
           onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelected(row.id); } }}>
-          <circle cx={point.x} cy={point.y} r={active ? 17 : 15} fill={active ? "#073d37" : "#316b60"} stroke="#f4fbf8" strokeWidth="2" />
-          <text x={point.x} y={point.y + 3.5} fill="white" textAnchor="middle" fontSize="8.5" fontWeight="700">{row.id}</text>
+          <circle cx={point.x} cy={point.y} r={active ? 17 : 15} fill={fill} stroke="#f4fbf8" strokeWidth={active ? 3 : 2} />
+          <title>{tooltip}</title>
+          <text x={point.x} y={point.y + 3.5} fill="white" textAnchor="middle" fontSize={view === "change" && comparison ? 14 : 8.5} fontWeight="700">{marker}</text>
         </g>;
       })}
       {shownSites.map((site) => {
@@ -66,24 +104,33 @@ export function Network({ dataset }: { dataset: Dataset }) {
         groupX.set(site.node_id, offset + 17);
         const x = point.x + 12 + offset, y = point.y - 14;
         const candidate = site.type === "candidate", active = selected === site.id;
-        return <g key={site.id} role="button" tabIndex={0} aria-label={site.label}
+        const opened = activeCandidates.has(site.id);
+        const label = site.label + (opened ? " · Selected site" : "");
+        return <g key={site.id} role="button" tabIndex={0} aria-label={label}
           aria-pressed={active} className="map-target" onClick={() => setSelected(site.id)}
           onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelected(site.id); } }}>
           <path d={candidate ? "M0-9 9 0 0 9-9 0Z" : "M-8-8H8V8H-8Z"} transform={"translate(" + x + " " + y + ")"}
-            fill={candidate ? "#c57b21" : "#11534a"} stroke={active ? "#101f24" : "white"} strokeWidth="1.6" />
-          <path d={"M" + (x - 3) + " " + y + "h6m-3-3v6"} stroke="white" strokeWidth="1.2" />
+            fill={opened ? "#194595" : candidate ? "#a35f12" : "#11534a"} stroke={active ? "#101f24" : "white"} strokeWidth="1.6" />
+          <title>{label}</title>
+          <path d={opened ? "M" + (x - 4) + " " + y + "l3 3 5-6" : "M" + (x - 3) + " " + y + "h6m-3-3v6"}
+            fill="none" stroke="white" strokeWidth="1.4" />
         </g>;
       })}
     </svg>
     <div className="map-legend">
-      <span><i className="legend-dot" /> Community cluster</span>
+      {comparison
+        ? <span>{view === "change" ? "+ Gain · − Loss · = No change" : "% Within-threshold coverage · Amber below 50% · Red at 0%"}</span>
+        : <span><i className="legend-dot" /> Community cluster</span>}
       <span><i className="legend-square" /> Existing site</span>
       <span><i className="legend-diamond" /> Candidate zone</span>
+      {comparison && view !== "baseline" && <span>✓ Selected site</span>}
     </div>
     <div className="map-selection" aria-live="polite">
-      {selectedCommunity ? <><b>{selectedCommunity.label}</b> · {formatNumber(selectedCommunity.demand_visits_per_week)} requested visits/week</>
-        : selectedSite ? <><b>{selectedSite.label}</b> · {formatNumber(selectedSite.capacity_per_week)} visits/week capacity</>
-          : "Select a cluster or site to see its input values."}
+      {selectedCommunity ? <><b>{selectedCommunity.label}</b> · {selectedBefore && selectedAfter
+        ? <>Covered visits/week {formatNumber(selectedBefore.covered_visits)} → {formatNumber(selectedAfter.covered_visits)} of {formatNumber(selectedAfter.demand_visits)} requested</>
+        : <>{formatNumber(selectedCommunity.demand_visits_per_week)} requested visits/week</>}</>
+        : selectedSite ? <><b>{selectedSite.label}</b> · {formatNumber(selectedSite.capacity_per_week)} visits/week capacity{activeCandidates.has(selectedSite.id) && " · Selected site"}</>
+          : "Select a community or site to inspect it."}
     </div>
   </section>;
 }

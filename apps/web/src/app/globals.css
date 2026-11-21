@@ -80,13 +80,13 @@ p { line-height: 1.55; }
 .section-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .section-head p { font-size: .8rem; margin-top: 3px; }
 .section-head > svg { color: var(--teal); }
-.map-panel > .section-head { padding: 15px 16px; }
+.map-panel > .section-head { padding: 15px 16px; flex-wrap: wrap; }
 .network { display: block; width: 100%; height: auto; border-block: 1px solid var(--border); }
 .map-target { cursor: pointer; }
 .map-target:focus-visible { outline: none; }
 .map-target:focus-visible > :first-child { stroke: #172525; stroke-width: 3px; }
-.layer-control { color: var(--ink-muted); display: flex; align-items: center; gap: 7px; font-size: .78rem; }
-.layer-control select { color: var(--ink); border: 1px solid var(--border); border-radius: 6px; padding: 4px 6px; background: white; }
+.layer-control { color: var(--ink-muted); display: flex; flex-wrap: wrap; align-items: center; gap: 7px; font-size: .78rem; min-width: 0; }
+.layer-control select { color: var(--ink); border: 1px solid var(--border); border-radius: 6px; padding: 4px 6px; background: white; max-width: 100%; }
 .map-legend { padding: 11px 16px; display: flex; flex-wrap: wrap; gap: 7px 18px; font-size: .73rem; color: var(--ink-muted); }
 .map-legend span { display: flex; align-items: center; gap: 6px; }
 .map-legend i { width: 10px; height: 10px; background: #316b60; }

@@ -24,6 +24,14 @@ export default function Overview() {
         <p className="muted">Model weekly service access, test an allocation, and inspect the evidence behind every result.</p></div>
       <Link className="button primary overview-cta" href="/scenarios/new">Start scenario <Icon name="arrow" /></Link>
     </section>
+    <section className="panel" style={{ display: "flex", gap: 18, alignItems: "center", justifyContent: "space-between", padding: "20px 24px", background: "linear-gradient(110deg, #e8f7ea, #fff)" }}>
+      <div style={{ display: "grid", gap: 5 }}>
+        <div className="eyebrow">NEW · Interactive decision lab</div>
+        <h2>Who gets care next?</h2>
+        <p className="muted" style={{ maxWidth: "58ch", fontSize: ".83rem" }}>Choose a public health challenge, adjust your budget, run the real planning engine and see which communities gain or lose modeled access.</p>
+      </div>
+      <Link className="button primary" href="/studio">Explore Impact Studio <Icon name="arrow" /></Link>
+    </section>
     {record ? <>
       <div className="stats-grid">
         {stats.map((stat) => <div className="panel stat-card" key={stat.label}>
