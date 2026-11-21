@@ -76,6 +76,14 @@ test("planner reviews, runs, compares and exports one persisted scenario", async
   await page.getByRole("link", { name: "Compare results" }).click();
   await expect(page.getByRole("heading", { name: "Compare allocations" })).toBeVisible();
   await expect(page.getByText("Within-threshold coverage", { exact: true }).first()).toBeVisible();
+  const zoneRows = page.getByRole("table", { name: "Weekly coverage by zone class" }).locator("tbody tr");
+  await expect(zoneRows).toHaveCount(3);
+  const zoneTotals = await zoneRows.evaluateAll((rows) => rows.reduce((total, row) => {
+    const counts = Array.from(row.querySelectorAll("td"), (cell) =>
+      Number.parseInt((cell.textContent ?? "").replaceAll(",", ""), 10));
+    return total.map((sum, index) => sum + counts[index]);
+  }, [0, 0, 0]));
+  expect(zoneTotals).toEqual([2598, 1320, 1853]);
   await page.screenshot({ path: testInfo.outputPath("comparison.png"), fullPage: true });
   const desktopViewport = page.viewportSize()!;
   await page.setViewportSize({ width: 375, height: 812 });
@@ -168,6 +176,7 @@ test("mobile planner is keyboard accessible and scenario controls fit 375px", as
   await expectNoPageOverflow(page);
 
   await tabTo(page, budget);
+  await page.screenshot({ path: testInfo.outputPath("scenario-mobile.png"), fullPage: true });
   await budget.press("ControlOrMeta+A");
   await budget.press("Backspace");
   await budget.press("-");
@@ -187,7 +196,6 @@ test("mobile planner is keyboard accessible and scenario controls fit 375px", as
   await expect(page.getByRole("heading", { name: "Review scenario" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Confirm & Run" })).toBeVisible();
   await expectNoPageOverflow(page);
-  await page.screenshot({ path: testInfo.outputPath("scenario-mobile.png"), fullPage: true });
 });
 
 test("an infeasible equity floor publishes a diagnostic without an allocation", async ({ page }) => {

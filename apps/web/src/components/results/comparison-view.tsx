@@ -111,6 +111,17 @@ function ComparisonResults({ comparison, dataset }: { comparison: Comparison; da
   const alt = alternative.metrics;
   const labels = new Map(dataset.communities.map((row) => [row.id, row.label]));
   const baseClusters = new Map(base.clusters.map((row) => [row.community_id, row]));
+  const zoneByCommunity = new Map(dataset.communities.map((row) => [row.id, row.zone_class]));
+  const zones = new Map<string, { demand: number; baseline: number; alternative: number }>();
+  for (const cluster of alt.clusters) {
+    // Audited runs on the same dataset contain exactly one row per community.
+    const zone = zoneByCommunity.get(cluster.community_id)!;
+    const totals = zones.get(zone) ?? { demand: 0, baseline: 0, alternative: 0 };
+    totals.demand += cluster.demand_visits;
+    totals.baseline += baseClusters.get(cluster.community_id)!.covered_visits;
+    totals.alternative += cluster.covered_visits;
+    zones.set(zone, totals);
+  }
   const extraCost = deltas.additional_cost_per_added_covered_visit;
   const metrics = [
     {
@@ -141,6 +152,27 @@ function ComparisonResults({ comparison, dataset }: { comparison: Comparison; da
             <p className={styles.kpiDetail}>{metric.detail}</p>
           </article>
         ))}
+      </section>
+      <section className={"panel " + styles.section}>
+        <div className={styles.sectionHeader}>
+          <div>
+            <h2>Coverage by zone</h2>
+            <p className="muted">Weekly visits within {plan.threshold_minutes} minutes, grouped by synthetic zone class.</p>
+          </div>
+        </div>
+        <div className={styles.scroll} tabIndex={0} role="region" aria-label="Zone coverage comparison">
+          <table className={styles.table}>
+            <caption className={styles.srOnly}>Weekly coverage by zone class</caption>
+            <thead><tr><th scope="col">Zone</th><th scope="col">Demand</th>
+              <th scope="col">Baseline covered</th><th scope="col">Alternative covered</th></tr></thead>
+            <tbody>{Array.from(zones, ([zone, totals]) => (
+              <tr key={zone}><th scope="row">{zone}</th><td>{integer(totals.demand)}</td>
+                <td>{integer(totals.baseline)} ({percent(totals.demand ? 100 * totals.baseline / totals.demand : null)})</td>
+                <td>{integer(totals.alternative)} ({percent(totals.demand ? 100 * totals.alternative / totals.demand : null)})</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
       </section>
       <section className={"panel " + styles.section}>
         <div className={styles.sectionHeader}>
