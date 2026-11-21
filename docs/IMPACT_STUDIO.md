@@ -1,28 +1,34 @@
-# CIVITWIN AI: Impact Studio MVP
+# Impact Studio competition demo
 
-## What judges can do
-Open http://127.0.0.1:3000/studio in the local planner. Select one of three policy missions: access expansion, a 25% increase in synthetic weekly demand, or a tighter weekly unit budget. Adjust the visible budget, number of mobile units, travel-time threshold and demand sliders. Optionally specify an equity coverage floor; explain that this can make a baseline infeasible. Press **Run verified simulation**.
+Start the project using the [local setup](../README.md#quick-start) and open [Impact Studio](http://127.0.0.1:3000/studio). The page evaluates one synthetic Bajaur week with fictional communities, sites, demand, capacity, cost and travel times.
 
-The page creates a normal persistent scenario, confirms its plan hash and solves the **baseline** with existing sites. Only after the audited baseline finishes does it solve the **optimized alternative**. Any failure is shown, not replaced with invented results.
+## Three-minute presentation
 
-The result dashboard computes the coverage delta, additional served visits, cost, and worst-community metric from audited API results. The Equity Lens groups community allocations into fictional Valley, Foothill and Ridge zone classes and shows which communities gained or lost weekly modeled visits. The Ask the Evidence section answers preset questions from these computed fields and documented model rules, not AI-generated unsupported assertions. The user can open the full comparison and report to inspect hashes and independent audits.
+| Time | Show | Say |
+| --- | --- | --- |
+| 0:00–0:30 | Open Impact Studio from the dashboard. | “A planner with a limited budget has to decide where extra capacity will cover the most visits. CIVITWIN shows who gains and who loses under the same assumptions. We use a synthetic Bajaur network to demonstrate the method.” |
+| 0:30–1:05 | Choose **Reach the overlooked**. Review the PKR 300,000 weekly cap, two-unit limit and 45-minute threshold. Select **Review simulation plan**, then **Confirm and run both allocations**. | “The baseline uses the existing facilities. The alternative can open eligible candidates. Both runs use the same travel, demand and equity assumptions.” |
+| 1:05–1:55 | Compare covered and unmet visits. Switch the schematic between existing sites, optimized plan and change. Select a community and inspect its counts. | “The solver chooses the sites and assigns weekly visits within the available capacity. The Equity Lens ranks gains and losses. A higher district total can still come with a loss for a community.” |
+| 1:55–2:30 | Open **Why these sites?** and the **Full evidence report**. Show solver status, audit and downloads. | “The independent verifier checks eligible sites, travel, budget, capacity, equity and demand balance. The evidence shows what this allocation achieved. Testing an unselected combination would require another solve.” |
+| 2:30–3:00 | Return to Impact Studio and select **Demand surge**, then **Tough budget choice**. | “The surge preset raises weekly demand by 25%. The tighter budget preset allows one new unit and caps spending at PKR 150,000 per week. The same solver evaluates each confirmed plan.” |
 
-## Demo flow (approximately 90 seconds)
-1. Explain that district planning involves hard trade-offs between budget, accessibility and fairness.
-2. Show the **Reach the overlooked** mission and its default settings.
-3. Press **Run verified simulation** and discuss the real baseline and optimized outcomes.
-4. Open **Who gains and who gives up access** to show that total improvement does not mean everyone benefits.
-5. Ask **Is it fair?**, then open **Full evidence report** to demonstrate traceability.
-6. Select the **Demand surge** mission to show that the same engine handles new assumptions. If time permits, run it.
+## What powers the results
 
-## Important restrictions
-- All values, node positions, service sites and travel links in the Bajaur sandbox are synthetic. They do not represent real facility locations, demand, costs or actual coverage.
-- Before a new run, 50.8% → 71.3% is a *previously recorded audited example*. It is not computed from the current sliders.
-- The current deterministic policy is "coverage first"; this is not a multi-policy or autonomous agent system.
-- The fixed-capacity model is for planned, non-emergency outpatient visits, not clinical triage or individual diagnosis.
-- Better overall modeled coverage can reduce allocations for some previously served communities. Show both gains and losses.
-- Real geographic data, provider integration, and domain validation are necessary before operational decisions.
-- For live simulations, start the API and Next.js app using README instructions. The static GitHub Pages demo is a separate recorded walkthrough.
+- **Optimization.** OR-Tools CP-SAT chooses and assigns eligible sites. The independent verifier checks the published allocation. `FEASIBLE` indicates an audited allocation for which the solver has yet to prove optimality.
+- **Evidence.** Impact Studio formats metrics, site assignments and community changes from both audited results. A failed baseline keeps its saved run available for inspection.
+- **Optional AI.** The Scenario Builder can draft inputs with a configured provider. The planner reviews that draft before confirmation. Impact Studio, the solver and the default explanations work offline.
+- **Public demo.** GitHub Pages shows recorded benchmark scenarios. Use the local app for live simulation, saved plans and exports. [Open the recorded walkthrough](https://ahmadalihamza.github.io/CIVITWIN-AI/)
 
-## Engineering verification
-Run npm run lint:web, npm run typecheck:web, npm run build:web, and npm run e2e. The new browser test covers a real baseline/optimized solve and a 375px mobile check. Keep the existing solver and audit tests unchanged.
+## Verified rehearsal results
+
+| Mission | Weekly demand | Covered visits with existing sites | Covered visits after optimization | Additional weekly cost |
+| --- | ---: | ---: | ---: | ---: |
+| Reach the overlooked | 2,598 | 1,320 | 1,853 | PKR 267,000 |
+| Demand surge | 3,252 | 1,320 | 1,853 | PKR 267,000 |
+| Tough budget choice | 2,598 | 1,320 | 1,555 | PKR 115,000 |
+
+These are audited runs with the default mission settings. Demand surge increases requests while site capacity stays fixed, so the same 1,853 covered visits meet a smaller share of weekly demand.
+
+## Local verification
+
+Run `npm run e2e` with installed Playwright Chromium. The Studio tests check mission presets and slider inputs, explicit confirmation, the audited baseline and optimized runs, map states, report navigation, mobile layout and the infeasible baseline diagnostic. The broader suite exercises the existing planner, comparison, Stress Lab, imports, optional AI and exports.
