@@ -4,6 +4,8 @@ A local-first planning sandbox for the KPITB AI Innovation Challenge. The first 
 
 The [software requirements specification](docs/SRS.md) defines the workflow and acceptance gates. The [implementation status](docs/IMPLEMENTATION_STATUS.md) records the commands run and which gates have passed.
 
+The [public GitHub Pages demo](https://ahmadalihamza.github.io/CIVITWIN-AI/) lets visitors compare recorded, independently audited synthetic scenarios. Use the local planner below to solve new scenarios and persist results. Pages serves the static files in `docs/` on `main`.
+
 ## Quick start
 
 Install Python 3.11, uv and Node.js 22.12 or later. From the repository root in PowerShell run

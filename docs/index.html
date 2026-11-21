@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore audited CIVITWIN AI service-access scenarios using synthetic Bajaur data.">
+  <title>CIVITWIN AI · Bajaur planning demo</title>
+  <link rel="stylesheet" href="./pages.css">
+  <script src="./pages.js" defer></script>
+</head>
+<body>
+  <header><div class="frame navigation">
+    <a class="brand" href="./">CIVITWIN <span>AI</span></a>
+    <a href="https://github.com/ahmadalihamza/CIVITWIN-AI#quick-start">Run the planner locally</a>
+  </div></header>
+  <main class="frame">
+    <div class="hero">
+      <div>
+        <p class="badge">Synthetic demonstration · Bajaur</p>
+        <h1>Plan for better service access</h1>
+        <p class="intro">Explore how a weekly budget and limits on new service units change coverage in a fictional Bajaur network.</p>
+        <a class="button" href="#explore">Explore scenarios</a>
+      </div>
+      <img src="./screenshots/overview.png" width="1280" height="992" alt="CIVITWIN AI overview showing the synthetic Bajaur service network and dataset totals">
+    </div>
+    <section id="explore" class="panel" aria-labelledby="explore-title">
+      <h2 id="explore-title">Compare recorded allocations</h2>
+      <p>Choose a scenario from the release benchmark. Results were computed by the local solver and independently audited before publication. Run the local planner to solve with new inputs.</p>
+      <label for="scenario">Budget per week and maximum new units</label>
+      <select id="scenario" disabled><option>Loading scenarios…</option></select>
+      <p id="result-message" role="status"></p>
+      <div class="table-wrap">
+        <table id="results" hidden>
+          <caption>Recorded outcomes for the selected scenario</caption>
+          <thead><tr><th scope="col">Metric</th><th scope="col">Existing sites</th><th scope="col">Greedy</th><th scope="col">Optimized</th></tr></thead>
+          <tbody id="observations"></tbody>
+        </table>
+      </div>
+      <noscript><p>JavaScript enables the scenario selector. The benchmark download contains every recorded case.</p></noscript>
+    </section>
+    <section class="panel">
+      <h2>How sensitive is the default plan?</h2>
+      <p id="stress">See the release benchmark for the 20 paired demand and travel scenarios.</p>
+      <p>The sensitivity cases use illustrative changes to weekly demand and modeled travel. They keep the selected sites fixed.</p>
+      <div class="links">
+        <a href="./release-benchmark.json" download>Download benchmark JSON</a>
+        <a href="./screenshots/comparison.png">View audited comparison</a>
+        <a href="https://github.com/ahmadalihamza/CIVITWIN-AI/blob/main/docs/DEMO.md">Read the competition walkthrough</a>
+      </div>
+    </section>
+  </main>
+  <footer class="frame">CIVITWIN AI · KPITB AI Innovation Challenge demo</footer>
+</body>
+</html>
