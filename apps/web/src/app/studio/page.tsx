@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState, type FormEvent } from "react";
 import { Icon } from "@/components/icon";
-import { Loading, useData } from "@/components/load";
+import { useData } from "@/components/load";
 import { api, errorMessage, formatNumber, post } from "@/lib/api";
 import type { Dataset, PlanSpec, Result, RunSnapshot, Scenario } from "@/lib/types";
 import styles from "./studio.module.css";
